@@ -1,0 +1,4 @@
+[submodule "Vlc.DotNet"]
+	path = Vlc.DotNet
+	url = https://github.com/almightyju/Vlc.DotNet.git
+	branch = develop

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multi-track-mkv-player", "Multi-track-mkv-player\Multi-track-mkv-player.csproj", "{FF8F4609-1C8F-4907-BC0B-B848CF9CC449}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vlc.DotNet.Wpf", "Vlc.DotNet\src\Vlc.DotNet.Wpf\Vlc.DotNet.Wpf.csproj", "{E20ECB62-640C-4D03-8F1E-998292614B1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vlc.DotNet.Core", "Vlc.DotNet\src\Vlc.DotNet.Core\Vlc.DotNet.Core.csproj", "{C332B8B7-1B26-4D17-A334-F54742209A51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vlc.DotNet.Core.Interops", "Vlc.DotNet\src\Vlc.DotNet.Core.Interops\Vlc.DotNet.Core.Interops.csproj", "{C0121ACC-DD8C-48DE-AB53-0FECE69947EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF8F4609-1C8F-4907-BC0B-B848CF9CC449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F4609-1C8F-4907-BC0B-B848CF9CC449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F4609-1C8F-4907-BC0B-B848CF9CC449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F4609-1C8F-4907-BC0B-B848CF9CC449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20ECB62-640C-4D03-8F1E-998292614B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20ECB62-640C-4D03-8F1E-998292614B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20ECB62-640C-4D03-8F1E-998292614B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20ECB62-640C-4D03-8F1E-998292614B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C332B8B7-1B26-4D17-A334-F54742209A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C332B8B7-1B26-4D17-A334-F54742209A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C332B8B7-1B26-4D17-A334-F54742209A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C332B8B7-1B26-4D17-A334-F54742209A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0121ACC-DD8C-48DE-AB53-0FECE69947EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0121ACC-DD8C-48DE-AB53-0FECE69947EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0121ACC-DD8C-48DE-AB53-0FECE69947EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0121ACC-DD8C-48DE-AB53-0FECE69947EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0D582BB-13AC-46C7-AB07-AE095C8F5BAF}
+	EndGlobalSection
+EndGlobal
