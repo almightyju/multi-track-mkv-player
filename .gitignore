@@ -2,3 +2,6 @@
 Multi-track-mkv-player/bin
 Multi-track-mkv-player/libvlc
 Multi-track-mkv-player/obj
+
+Setup/bin/
+Setup/obj

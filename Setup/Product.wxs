@@ -1,0 +1,1589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Police Ident Player" Language="1033" Version="1.0.0.0" Manufacturer="Crystal IT" UpgradeCode="7fa9348d-ab08-49ff-b395-58caad8ba7cf">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="Setup" Level="1">
+			<ComponentGroupRef Id="Components" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFiles64Folder">
+				<Directory Id="INSTALLFOLDER" Name="Police Ident Player" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Crystal IT"/>
+      </Directory>
+		</Directory>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="f4621811-b18c-49bb-a473-ed90d60d466d">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Police Ident Player"
+                  Target="[#filADE97AAE4402AEF7ABC811987ADD84C1]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+
+	<Fragment>
+      <DirectoryRef Id="INSTALLFOLDER">
+        <Component Id="cmpE496F7B1B020A900B37D986D739A99ED" Guid="{D0018328-4FF4-4A25-A6CE-3CEAF54AD227}">
+          <File Id="filADE97AAE4402AEF7ABC811987ADD84C1" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Multi-track-mkv-player.exe" />
+        </Component>
+        <Component Id="cmpBFF0EF3AD265E031023E77F9391447D1" Guid="{3FCA9409-1C54-43E2-9DF1-A1A9F0E7A93F}">
+          <File Id="fil700E86539B3145C73602E650028B448A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Multi-track-mkv-player.exe.config" />
+        </Component>
+        <Component Id="cmp6131918BB6BE422AFA0969687F3B7F45" Guid="{C8D1B6FA-F9E2-4C4A-A47B-412484EAC2A1}">
+          <File Id="filB6D62A091ABCF5F0D31B377475DDED95" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Multi-track-mkv-player.pdb" />
+        </Component>
+        <Component Id="cmpED54EAE9850957BD4116421341E2F29C" Guid="{30C26CD6-B304-4C98-9381-A2D85A1B0E65}">
+          <File Id="fil96CC63DE32620C1709C7C152CF57AB23" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Core.dll" />
+        </Component>
+        <Component Id="cmp0106CEFAB10522060DAF19A846F6487A" Guid="{F1A7448F-1B79-4980-B15F-69EA060F55C9}">
+          <File Id="filAE08D8AC949A6D994847C4CCC20B1591" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Core.Interops.dll" />
+        </Component>
+        <Component Id="cmp66DBAF0127EDD0946ECB5D554BCA79D3" Guid="{46A7FDC5-87E4-41EB-9F38-7EB3406197F4}">
+          <File Id="filAA6FC0156737628AD2CCD45FE7FAA0AE" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Core.Interops.pdb" />
+        </Component>
+        <Component Id="cmp03CC844FA31D0476DEF07BE03EE3B39C" Guid="{4B9C499B-E5E4-4F8E-9E90-FC280DAB16DA}">
+          <File Id="fil23339F638B75CC245B0B6DE9B3E512E7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Core.pdb" />
+        </Component>
+        <Component Id="cmp25317C643BDE37B8FDAA5A1653CF3498" Guid="{D7FDC147-368D-4FF5-9A7A-831ED9E03880}">
+          <File Id="fil2FE0F5A0DDF33F09302C2408995821EC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Wpf.dll" />
+        </Component>
+        <Component Id="cmp44D8DDB4E979AEDC672ECF400BB5BA12" Guid="{C2A5790C-9C26-4171-92AF-32ED3768F59B}">
+          <File Id="fil02200A998B3EFACA96CFC136B3CAA22E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Vlc.DotNet.Wpf.pdb" />
+        </Component>
+        <Directory Id="dir880030E294772C4817F341C885DBB9C4" Name="Images">
+          <Component Id="cmpB03B0A2DEF1E7275297F8FF38B1370B8" Guid="{D41F8E13-69B9-46E3-B6DA-BE34552B302A}">
+            <File Id="filEBEDFED0B3E17B5BBFF507CCBE103F59" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Images\pause.png" />
+          </Component>
+          <Component Id="cmp0BE816B4D1E82F41B9B39B13F1121650" Guid="{E9F38EBB-222C-47D2-B35E-30F53428539F}">
+            <File Id="fil95470C7BEED577A7177C5ACC4363FBAA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\Images\play.png" />
+          </Component>
+        </Directory>
+        <Directory Id="dirB4CADBB4B9BE83D33F6B2876323EDEFE" Name="libvlc">
+          <Component Id="cmp47DF3A9E103214C476F28C34B72CDE63" Guid="{6D94A4E6-79A8-4507-9A66-C61655882425}">
+            <File Id="filF34275C5906217FFF67C8D8FB89C5A91" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\libvlc.dll" />
+          </Component>
+          <Component Id="cmp577625DEF3D960035DEA4225119F5C90" Guid="{DF25EA9D-5E7A-4B66-A4A4-1A19E9F81059}">
+            <File Id="fil7A35B12494E6DC92585E153C6CB2AC5A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\libvlccore.dll" />
+          </Component>
+          <Directory Id="dirB639BF612258D2D68AE553D189B6F05E" Name="plugins">
+            <Directory Id="dir8D6368D55B47174D6EDB84B5D9C0A884" Name="access">
+              <Component Id="cmp1292E2793C00F2147014ADCECEB71E30" Guid="{37630F25-9065-497B-B39B-59A0511D786C}">
+                <File Id="fil651367EE67D26F597CBAD79EA7734A55" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libaccess_concat_plugin.dll" />
+              </Component>
+              <Component Id="cmp3D7CE47B9D877EF0EB09097AC15B17FE" Guid="{73AD1EAD-D73D-4488-9649-48A7331E8177}">
+                <File Id="fil679AF3DECA2AB4EF3D864B2421F53476" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libaccess_imem_plugin.dll" />
+              </Component>
+              <Component Id="cmp78FA5E1236A09C2C50EAAF8FB4D0EEAE" Guid="{12429BA3-CC79-4E49-A2EB-3FD468F9043D}">
+                <File Id="fil8A3658CF5ED817AFC29D543CB287770E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libaccess_mms_plugin.dll" />
+              </Component>
+              <Component Id="cmpF7F6CEA00DAE32797747DF64C3B39F36" Guid="{6520F4CD-F14B-42CB-BBC6-33572256EE3E}">
+                <File Id="fil3562E44DC9A14B5D86098723795D0233" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libaccess_realrtsp_plugin.dll" />
+              </Component>
+              <Component Id="cmpD689C6610A44E601BA7E26B1A2A75B86" Guid="{93F8A2BA-4B7E-4CB8-A0DF-F48DF42155D0}">
+                <File Id="fil58CF808896C0112AD29E38E151B31183" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libaccess_wasapi_plugin.dll" />
+              </Component>
+              <Component Id="cmpA0BE1BC5B91FA39D4932410BB5A94ED4" Guid="{540E47B9-426A-4B22-9C31-F82AFFA88E4C}">
+                <File Id="fil8F9A3DF66E39588B07AE1DBB6F1D0789" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libattachment_plugin.dll" />
+              </Component>
+              <Component Id="cmpCE30D572EEFB1CFB9E1107D95AF1AB4E" Guid="{D0DFBA41-CE32-45B3-9590-2A51DBA49E05}">
+                <File Id="fil702C60914B9ABADC80CA77464F4FFDFF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libbluray-j2se-1.0.2.jar" />
+              </Component>
+              <Component Id="cmp8F9DD173E0EFF2FDF2B5CCA180437D82" Guid="{0DC7C87E-4694-4DF1-A22D-C584B231D45C}">
+                <File Id="filC6D741D9ED161C368F665697BC7FD46B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libcdda_plugin.dll" />
+              </Component>
+              <Component Id="cmpD2D8F62F23E05F3DBEC1A077EC7EB265" Guid="{8935480D-44D3-4354-8210-01DA61E6E6E7}">
+                <File Id="fil7971F67D2B39AEDA2F8EDB5326167CA6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libdcp_plugin.dll" />
+              </Component>
+              <Component Id="cmp3752B9A3A09642E7C3D64B03C4C046E3" Guid="{66628D47-D157-4206-80E9-3A48305BB7E3}">
+                <File Id="fil3F6A9B5358B5CC272488A3F95ED97705" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libdshow_plugin.dll" />
+              </Component>
+              <Component Id="cmp048BB499772E74BA58A7357BEAAD8706" Guid="{5032D13B-1E91-43D5-8590-1A727DC573EB}">
+                <File Id="filE147306D41DF75094E0AA3059DDD868F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libdtv_plugin.dll" />
+              </Component>
+              <Component Id="cmp4B1DA1D0F6AA3F3AB0DE91A9D8A5190F" Guid="{A098F631-7FD3-4B9A-8A97-1BF336F99E75}">
+                <File Id="filEED14A4CD79BAB53885EFA49A8EDEEB8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libdvdnav_plugin.dll" />
+              </Component>
+              <Component Id="cmp93A894D2AF137A93FD473F689C94FA3B" Guid="{94FEAFD6-316C-435C-A401-3ECB701E597E}">
+                <File Id="filE2EAE052FFB5DC018DCAD0B0C9828042" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libdvdread_plugin.dll" />
+              </Component>
+              <Component Id="cmp369B0475AB242E4A8299F23DDC40B60E" Guid="{FEE17C65-D9C1-4E2C-89EF-6CB25865A627}">
+                <File Id="filD9FDE37EB7F30F0CB1C562E0826D30AF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libfilesystem_plugin.dll" />
+              </Component>
+              <Component Id="cmp02ABAB09623BD432CC938045558C9937" Guid="{AE07A985-CD73-4A00-BB14-2FF5E3DCFB88}">
+                <File Id="fil779147B93EC7055D458EA0CA3DD9DC75" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libftp_plugin.dll" />
+              </Component>
+              <Component Id="cmp710B48150B1D4CAA62600638ED0B033B" Guid="{280C84E9-C351-4585-86EB-6B093C7B3172}">
+                <File Id="filBAD8E02103FEA8B3BDCCAD5DDAC55B65" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libhttps_plugin.dll" />
+              </Component>
+              <Component Id="cmp717120F159B63CA3505F00885A0D81A6" Guid="{77B8C6F5-4AF1-401A-B34A-8698C1417598}">
+                <File Id="fil1FCB8CC7F526B8CEDF38EC0D4ECCF5E4" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libhttp_plugin.dll" />
+              </Component>
+              <Component Id="cmpCAA058F9796E5ED3740896522458A6B6" Guid="{305D8275-2829-4C38-A355-F6213A95CEE3}">
+                <File Id="filFA6858E6E9C5BAF714D8A78A270C212C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libidummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp23B2F6719CA0627B833A0F0EC24B5A47" Guid="{401DAD74-BB6E-404D-9996-4452343F2D7D}">
+                <File Id="fil5FDA12FC18EB1379A1E156A0319DF4D5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libimem_plugin.dll" />
+              </Component>
+              <Component Id="cmp779CB3E0738C647D64DF58AC9B810100" Guid="{747D9489-4473-42FB-BD34-DC377B88B175}">
+                <File Id="fil3B40E4EAB919562E4F025A607254C4EF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\liblibbluray_plugin.dll" />
+              </Component>
+              <Component Id="cmp1A8DFE7E5DFE6057F26BEB8A3F274999" Guid="{0E73342A-D210-4125-91B3-88F53B8E587C}">
+                <File Id="fil4CA23C13179BAD6A08C9FA11671407F6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\liblive555_plugin.dll" />
+              </Component>
+              <Component Id="cmpDA7BB2B648DE443F374B4EDD26912B77" Guid="{32DD71A1-76AE-440B-902D-A4DF35AFD409}">
+                <File Id="fil089B6EF714B9DBB613DCF8D30687FF79" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libnfs_plugin.dll" />
+              </Component>
+              <Component Id="cmp0E9F4BB4549AA0635A893A1DA0E13DDD" Guid="{C38E0409-2F9F-4DBD-BBFB-F53C92604128}">
+                <File Id="filF8A0A0B2F20317C9F676A4FD8E567062" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\librtp_plugin.dll" />
+              </Component>
+              <Component Id="cmpD984B3FDA9099F9D48A90E4A17DE5A0F" Guid="{6C4B205F-3CAB-43C2-B262-A76E00C0D4C6}">
+                <File Id="fil1223414A9B6CD4A13F6851B16804FF3F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libsatip_plugin.dll" />
+              </Component>
+              <Component Id="cmp2859E1C8CAAE57E7F4886CC58ED38807" Guid="{73A9C9C1-8070-431C-8A59-0DD591152D67}">
+                <File Id="fil7995A6BC1B47FD0C826C562A36B60389" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libscreen_plugin.dll" />
+              </Component>
+              <Component Id="cmpA1B5682DD64D45409A099F788C9167F9" Guid="{1E965011-DE2C-4AE0-9FC6-8FA6D951A73B}">
+                <File Id="fil2228E9288CE425E4E9F285679DDD887B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libsdp_plugin.dll" />
+              </Component>
+              <Component Id="cmp0C5EC1D72299D22F5B659301918BB703" Guid="{2510A89B-7F9B-4FA4-BC81-BD4086775F94}">
+                <File Id="fil0D16C0AC60803B4945A3660982CC86C0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libsftp_plugin.dll" />
+              </Component>
+              <Component Id="cmp8B40B2B5764CF3B362098A6175567AAF" Guid="{EEDBBCA4-068D-48F1-85C3-C5B457ED85D5}">
+                <File Id="filD2EA7BC683A1DD3C3C5AFB12DFBF26AD" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libshm_plugin.dll" />
+              </Component>
+              <Component Id="cmp7B5D78402C0A7B8998473611D5A285FF" Guid="{B8408C24-621F-498F-82B6-78093B19F9DC}">
+                <File Id="fil1CEB03D003F2AC64D00EDB6DBF8EFFB3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libsmb_plugin.dll" />
+              </Component>
+              <Component Id="cmpFDA0CA640F917920E8034382E447DE47" Guid="{7F779458-582E-47E1-BA81-61E579C785C8}">
+                <File Id="filDEC7AE2E2838C87A2DA46BF896B62003" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libtcp_plugin.dll" />
+              </Component>
+              <Component Id="cmpECE1950EBC29BDC32F23F86756E4546C" Guid="{7862F88D-DC2E-4481-B3FF-FE0638A498E1}">
+                <File Id="filB93E701720E06DF448592B8D72626604" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libtimecode_plugin.dll" />
+              </Component>
+              <Component Id="cmp759BA25A6D35366DD93DFEAC74312A35" Guid="{157ED740-777A-4640-B612-71B0335DD9E6}">
+                <File Id="filAC13108F69F23E10579C684E5A37612A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libudp_plugin.dll" />
+              </Component>
+              <Component Id="cmp3D95516A7460F9790FA606D2AC511160" Guid="{5683C886-523D-4501-B6F4-9D97AADDB117}">
+                <File Id="fil151177CFC5E666080E9E95E254006965" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libvcd_plugin.dll" />
+              </Component>
+              <Component Id="cmp17DFD4C038E542C295683F371EA49DB7" Guid="{3216F144-F4A0-4D65-991F-4BBB4287BE72}">
+                <File Id="filECAD0E676CD82107F58E92ADAC5EAEA2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libvdr_plugin.dll" />
+              </Component>
+              <Component Id="cmpE819A0F049D25A6F0D700342BC58625C" Guid="{E5B5CBDD-0DC8-4976-8A28-45313C458AAB}">
+                <File Id="filA5FDD45D20174CFA3C36B4420C2E04C5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access\libvnc_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir1747DBCE60189E72DED2BBE167298B91" Name="access_output">
+              <Component Id="cmpEF24B2FF8EF66482AE365931EBD76FB7" Guid="{23B82F8E-730A-4878-8FDF-B0B8F8C03D39}">
+                <File Id="filA3A0BED06737E9595548EAF20A0A6C18" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_dummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp54443B0284CDF925C924E4482A7CCA81" Guid="{DBF5580B-3E22-43D7-902F-4419B45C5942}">
+                <File Id="filC8872CAB75B1BDFD4685F054F0DF2032" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_file_plugin.dll" />
+              </Component>
+              <Component Id="cmp070520A914AE87B01D811E6EC273DDF3" Guid="{B6D6DDA1-3659-4893-AF46-8BA1FF4FB74F}">
+                <File Id="filCDEAF17604E3B55E83BA3285D28B0CC3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_http_plugin.dll" />
+              </Component>
+              <Component Id="cmpCBD77DCB0394E22245ABD56EF9F54BFF" Guid="{651BEC87-9AF3-4099-B529-5FE51F779F47}">
+                <File Id="fil5487EFEAEFE1310186102167A06BDC56" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_livehttp_plugin.dll" />
+              </Component>
+              <Component Id="cmp54BDF57443CDE4326BE8CBF9922734BE" Guid="{587F269D-E17F-4D36-A099-2C1903578C66}">
+                <File Id="fil36D346FEC14393EF3A4CE3ED96CEDD44" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_shout_plugin.dll" />
+              </Component>
+              <Component Id="cmp469312DF8F1CB7D2582A0D2B0DC04B06" Guid="{509F1947-9E34-4FF3-9E85-F23549AE3C89}">
+                <File Id="fil7410D31BDD7ECF9859407DD8C5B00E7A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\access_output\libaccess_output_udp_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirC4DC0C4EC8FBCB5173BBE919463B4C32" Name="audio_filter">
+              <Component Id="cmp9BC5ACBE4139BB0A13B67E4D04BC8721" Guid="{EF67E03A-D8D4-4784-ADCC-AED7244070EB}">
+                <File Id="filBCD810AC2AABF9ACB8DB67837CDDD23F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libaudiobargraph_a_plugin.dll" />
+              </Component>
+              <Component Id="cmp83FCA5875AACAB3ED2BFE7EA99754AA1" Guid="{C551518B-EC21-4620-A283-0491489B99A3}">
+                <File Id="fil1ACBB3E851E36E1AE00D9B448DFE0291" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libaudio_format_plugin.dll" />
+              </Component>
+              <Component Id="cmp4403DA17ED170B986ECDFF51F14BECF0" Guid="{59D57141-BAC6-49CD-AFFE-84FBCC6FC12D}">
+                <File Id="filFE6B079C15999F3BB49ACCAEA24EB957" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libchorus_flanger_plugin.dll" />
+              </Component>
+              <Component Id="cmp738752963682614AB024CC6917AC4D40" Guid="{892D927E-DE06-4DBC-ADB2-ECFD5FD7B658}">
+                <File Id="fil3CDDEBBAEDC317C45BFB4C0F18BB52AF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libcompressor_plugin.dll" />
+              </Component>
+              <Component Id="cmpE0BD63796BABA5B05207DAF6BC18B6F5" Guid="{35002A97-81C1-4AAE-B9B1-69B4A0C8FB89}">
+                <File Id="filBE364D635551F6AA43B6E33F800958B0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libdolby_surround_decoder_plugin.dll" />
+              </Component>
+              <Component Id="cmp508FD9C5CB2B21D2622E390E63058FDF" Guid="{7AC43D1E-C21E-4690-9B56-4AA14F6A238E}">
+                <File Id="filAE077A903FD56402A569ADDD5BA2CE7E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libequalizer_plugin.dll" />
+              </Component>
+              <Component Id="cmp60354E7D07F5D96F0784491ED50E9DD0" Guid="{F615484B-E43B-4E03-8958-C5CB50E6B80B}">
+                <File Id="filAB8ED4577D2CFEF81E238B9BFF27424E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libgain_plugin.dll" />
+              </Component>
+              <Component Id="cmpB25C9B3D472442E71C0524962BA6E6DA" Guid="{0A68BE33-7348-4A65-A574-764C90E00BA8}">
+                <File Id="fil45601587DEE41EF412EB83966696A421" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libheadphone_channel_mixer_plugin.dll" />
+              </Component>
+              <Component Id="cmp7A8B3C76D396C28CBCDB457E06918561" Guid="{A998922A-9AEE-47D0-9616-423412F632B5}">
+                <File Id="filBDB4D0F4AEE64A4F733F694E7EC86BE4" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libkaraoke_plugin.dll" />
+              </Component>
+              <Component Id="cmp822A3D71FFC7A2878201527E46E7090C" Guid="{A1D7E3D4-44D9-461D-9ACC-EA2A6549EDE6}">
+                <File Id="fil380208607C12148BF71E4F3F50953009" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libmad_plugin.dll" />
+              </Component>
+              <Component Id="cmp6EC1F05B7879A6D58545874CAC08661A" Guid="{DC915847-5B9B-4C63-BC97-7827B522266E}">
+                <File Id="filC5A77BB342CECB34F1E909CFBD43ACBC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libmono_plugin.dll" />
+              </Component>
+              <Component Id="cmp077E98EA46300A65C5D93215CB03C213" Guid="{E014AF4E-DADF-4F22-8310-B35AEAF0AA59}">
+                <File Id="fil80F0EBBD6637D156F42D3520986BA72B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libnormvol_plugin.dll" />
+              </Component>
+              <Component Id="cmp6AE5A9307F7D9A26CF669ED7A43F2089" Guid="{7E5CC93A-867D-4EDD-81D4-D6A8DFC42F2A}">
+                <File Id="filA351524381D488B0668DA64621107C8F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libparam_eq_plugin.dll" />
+              </Component>
+              <Component Id="cmp21EACE18C53F1992EA0828EC3C8E343C" Guid="{BDBCB9AB-A8F0-433D-9D52-5FEA08D5EDCB}">
+                <File Id="fil6A8D1B98DAFB3FA7DFCCEFBABF06A330" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libremap_plugin.dll" />
+              </Component>
+              <Component Id="cmp3C04CC3CED46A7AB39E84BB17036A8F1" Guid="{88D7E32A-B87C-42EB-BAB7-A62E7989F4AF}">
+                <File Id="fil48AFD33EC134010A8BC033976B189314" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libsamplerate_plugin.dll" />
+              </Component>
+              <Component Id="cmp6D2C72C7F30D1DF60A0965A9C32C56C1" Guid="{11967F24-93B6-4D06-A115-81BC69EB8D77}">
+                <File Id="fil7351D55048E5AD15CE61EF493D8BCAC2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libscaletempo_pitch_plugin.dll" />
+              </Component>
+              <Component Id="cmpFCFA89BBE9EBCE4F44C62101D34832D6" Guid="{F4FD1D1B-0589-4E51-8950-FC18F424C097}">
+                <File Id="filDC16D99D73816B5B1315D9208F6BD31A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libscaletempo_plugin.dll" />
+              </Component>
+              <Component Id="cmpA33DA4BCBFC468160421EC401DD926AD" Guid="{73D8FE96-CEDC-40EB-88BB-713AD42F9123}">
+                <File Id="fil48A14DC0A197AC62DC4416E58980232D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libsimple_channel_mixer_plugin.dll" />
+              </Component>
+              <Component Id="cmpA8C1FBF6A243FC7277864340A69BB45C" Guid="{8CD19A52-4B71-45E4-BA07-104C6875D32C}">
+                <File Id="filA6F5DDC60CAFAD618AD44BBF1FEE6C90" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libspatialaudio_plugin.dll" />
+              </Component>
+              <Component Id="cmpFC4DCD760CACA0EFB54E14C02DADD260" Guid="{BF3B33DD-72C3-4D40-BE04-2FCE54059CB4}">
+                <File Id="fil5CB9B6BE95985D79F07C25C5E1B6DC0B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libspatializer_plugin.dll" />
+              </Component>
+              <Component Id="cmpA9EEB074BD5CB2D0ED7C751F6822D7A6" Guid="{690A8081-39C9-4552-8404-E236A6CC8AA4}">
+                <File Id="fil09F6E9701CEB8DFB8607FBBC16F6C216" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libspeex_resampler_plugin.dll" />
+              </Component>
+              <Component Id="cmpD0A569C95673E0227680B5EA1891512E" Guid="{F6295D97-A0FA-4392-B666-AE8EAD31C385}">
+                <File Id="fil9B0A2D949AB2CBC40A673747E795F275" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libstereo_widen_plugin.dll" />
+              </Component>
+              <Component Id="cmpD835C6BC7322368769E6999E389C4512" Guid="{4C84BBD2-9DFB-4791-97B1-0B68072D091F}">
+                <File Id="filA982C464302A5FC4A5A5D4C9AC4D5C79" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libtospdif_plugin.dll" />
+              </Component>
+              <Component Id="cmp211E838BEC1679F2A769CC2014583189" Guid="{8FDFD29B-0240-4103-B855-9B434FD9D041}">
+                <File Id="fil10C57B92DAE2152FCB5A9485E8C0354C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libtrivial_channel_mixer_plugin.dll" />
+              </Component>
+              <Component Id="cmp548753E616A2879B3ADD5D05395E5654" Guid="{8B98BEB1-E9FF-4E1B-A134-817FF5FCD0E5}">
+                <File Id="filBD7B035A57457193C659CD549DED455A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_filter\libugly_resampler_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirC7DE3B131DEAB2BA563B4156180FDB91" Name="audio_mixer">
+              <Component Id="cmpA3037156817104117FFACFB0EA9CFE29" Guid="{421E2D5F-15C4-4C5F-B450-26725417ABC9}">
+                <File Id="fil4B9C48EA5E4E8B5B4B4E16C48ACE595C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_mixer\libfloat_mixer_plugin.dll" />
+              </Component>
+              <Component Id="cmpB9D4EF3824974C63FE4C506A8B918A54" Guid="{72463FC7-44A0-4D5B-AA60-6D7597A7A58C}">
+                <File Id="fil618134FD3C2342B2BF5ED7AFD8CD8142" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_mixer\libinteger_mixer_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir9900EA08A73570849541AFDCC80281A8" Name="audio_output">
+              <Component Id="cmp3F7ECB8CF1695B28B0B8A5C54B4CBABC" Guid="{83D0DDA7-89C8-4EB5-B8E7-85A171C92039}">
+                <File Id="filAD40D910FA3A873E8BE4046D56468C9F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libadummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp92AAB4037ECEC8DC2FA8D5E174030E0E" Guid="{1D50F09D-4728-4E13-BAFF-E6068966F00D}">
+                <File Id="fil03C6B90E6C3AFC3BD54AC1CDBA1CBD19" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libafile_plugin.dll" />
+              </Component>
+              <Component Id="cmpD7DE683EAB2E04A147603D92550145FF" Guid="{5AE35181-5FB4-4ABE-8F8B-18B4F21A5179}">
+                <File Id="filE855C6018FBFC3726BFF0C772E9F5FEC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libamem_plugin.dll" />
+              </Component>
+              <Component Id="cmp9BE278706BE2A2D30B21487F1F8EBA0E" Guid="{FFA95557-0F08-4F91-BF35-2CAD66829A0C}">
+                <File Id="filD384B00FD952E4DBDBD1D9E2540BE109" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libdirectsound_plugin.dll" />
+              </Component>
+              <Component Id="cmp2D554DFB2105D5E6DD36A01640D6944D" Guid="{138F9F18-0623-4C77-B2F2-28FAAF25E06A}">
+                <File Id="fil392729B66A8B0C1FDAF7780B1E8D1BE5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libmmdevice_plugin.dll" />
+              </Component>
+              <Component Id="cmp9818CC4329EB327C75BA10235AA4A50D" Guid="{218FF1B7-AB60-41DF-B0B0-10012C00407A}">
+                <File Id="filDD6D264241E20D61BAC5C2D018EF501D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libwasapi_plugin.dll" />
+              </Component>
+              <Component Id="cmpED2C527909AD93649A18AF4A20E17051" Guid="{B4AADA63-7000-48A1-8B6E-C9993A4191AE}">
+                <File Id="filA2C89B9C802AEBEFD491C3A7BADF8881" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\audio_output\libwaveout_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirCC49E4A1AF8C49E1C5EC7FC1C51DFF42" Name="codec">
+              <Component Id="cmpEF50A3D45DF75E43316BF83EC1C2BC80" Guid="{E1FDBB9E-BF8D-488F-9099-0A96E5AC4A62}">
+                <File Id="fil7D9EEC7DDC0DA03A12A760AA7A1AB5F3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\liba52_plugin.dll" />
+              </Component>
+              <Component Id="cmp0FD581A31111B2020698441A9786D2B1" Guid="{439CFCC8-BFE3-4725-8762-C5D50639BA48}">
+                <File Id="filBEEAC680C17E05A9EC307D5AF71A9288" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libadpcm_plugin.dll" />
+              </Component>
+              <Component Id="cmpB366278C8EA496662E6001F9B43EEC46" Guid="{30678C81-E918-49D2-89F6-14623DC13BAA}">
+                <File Id="fil86947B0DEE7D3B344797C07187DA9138" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libaes3_plugin.dll" />
+              </Component>
+              <Component Id="cmp9360B99685ED96A760C62B582C409E02" Guid="{85967B5C-0D7F-4387-98EC-CE4E0F50C977}">
+                <File Id="fil39B3939A32E40B1A651F511A4704B95A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libaraw_plugin.dll" />
+              </Component>
+              <Component Id="cmp7E406BF0BDEA5C0A12517B8672D6B10F" Guid="{FE25ECDD-C810-4814-BB04-536D844C0AB3}">
+                <File Id="fil1B998DA7097C86F5CF5B5B44E7336D7F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libaribsub_plugin.dll" />
+              </Component>
+              <Component Id="cmpA5DB47BA3CEABC61DAF21C469516E997" Guid="{6567B3F3-EF2B-45CD-8375-F91FD3A5BFAE}">
+                <File Id="fil8957EA3F4266DD3A7C3EB5655FC0BA8D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libavcodec_plugin.dll" />
+              </Component>
+              <Component Id="cmpDD3EC15759FC20D860946BDB22319CCF" Guid="{E32F551D-4EB0-45E6-8E73-985FD69791BF}">
+                <File Id="filA3574C8DACE673C81837C773FA544478" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libcc_plugin.dll" />
+              </Component>
+              <Component Id="cmpD132E7649782365B7A031A27CC6E9F31" Guid="{70A2C06E-B70B-47E9-916E-50529FD037EB}">
+                <File Id="fil26E35367DAE079AE8A547E5AD592FC06" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libcdg_plugin.dll" />
+              </Component>
+              <Component Id="cmpC398DACDFAC0655A422E68FAD6401938" Guid="{E472B38C-650F-4B54-9407-ADFA7B00350E}">
+                <File Id="filA4135015E675715A78B5D1540792E905" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libcrystalhd_plugin.dll" />
+              </Component>
+              <Component Id="cmpE0CC3A7B46C39062E648C4677A5CD54A" Guid="{CA6DFF2A-9094-4CE7-A1B0-A32934F00066}">
+                <File Id="fil1C575A1799D46C2CEB8C97E4BDA9ABB4" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libcvdsub_plugin.dll" />
+              </Component>
+              <Component Id="cmp97BEA422608CC65B6803B01388B3F99D" Guid="{A695E281-CD35-4BE2-8D09-AEC3A53A3F29}">
+                <File Id="filCD22963380B4F32F5B0A36818C3EDA35" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libd3d11va_plugin.dll" />
+              </Component>
+              <Component Id="cmp5E1C2960C467C22B50658B92043DEECD" Guid="{D6A6B483-1C6B-43E6-9428-40F7E631789E}">
+                <File Id="fil9845D0354A6ACBEBD27947AB4DFD3336" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libdca_plugin.dll" />
+              </Component>
+              <Component Id="cmpDC332D7B5D30CD77A96E4782BD59FF36" Guid="{DC11ED30-35B3-414D-9427-B3623784FB98}">
+                <File Id="fil82E37D79A6FEC2C2F37106DDE8E1C979" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libddummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp9E559F8BF811C733EA0B4CFB951DB964" Guid="{15B4B046-39BE-4958-B430-43B59969577B}">
+                <File Id="fil1E8E5664645E5CBCF0F5066FB74C1F1E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libdmo_plugin.dll" />
+              </Component>
+              <Component Id="cmp65DC83BA74202E7568FCDBB482484583" Guid="{F75B33B3-C767-4BC7-B15C-F5C5657AFA9A}">
+                <File Id="filDB8C4FFE976FC684AB525D9CD08269AD" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libdvbsub_plugin.dll" />
+              </Component>
+              <Component Id="cmpB62864FD20050B769DCBCE95688C5053" Guid="{55463DE8-E582-4294-83F3-6D29B8497F42}">
+                <File Id="fil979681DE75BB149009E5A5B54F02FC26" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libdxva2_plugin.dll" />
+              </Component>
+              <Component Id="cmp267CA9A2BF9239107304264F436208BC" Guid="{90F54C0A-0829-47B4-B1EE-A8160A99377B}">
+                <File Id="fil26900415B85C355EDB031906917592A7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libedummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp544E90B875A73D1FF94FB7144B6B7C2B" Guid="{28D99317-5FB1-42EB-821A-A9D61E704934}">
+                <File Id="filC5BFC39E73CD5FFC65939BCE38370B1F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libfaad_plugin.dll" />
+              </Component>
+              <Component Id="cmp0D867FF46045C655DE3CC4B6991A881D" Guid="{CDCD013E-2DC1-4576-B748-59E14C94C9B1}">
+                <File Id="fil2E1AAB508AFCBF1FA0FAC9B0B074E297" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libflac_plugin.dll" />
+              </Component>
+              <Component Id="cmp2D0E243603B69A1D27431B009A2632DD" Guid="{8DD03F67-1B24-43E3-84D7-3CACC3162778}">
+                <File Id="filAC5A35F05D95A985939A4652A76E3EF8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libfluidsynth_plugin.dll" />
+              </Component>
+              <Component Id="cmpC99169A3A25384260B31394439A74418" Guid="{DB38B4ED-5FEA-4CB4-855F-F6EF85617052}">
+                <File Id="fil8707BE3C4C4F56077348B5C238C0F2EE" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libg711_plugin.dll" />
+              </Component>
+              <Component Id="cmp964CB6F82EDACAA13D8DAE7DC5B4A10D" Guid="{306B03AC-5B9F-4D4A-9CA7-8941523D5CFA}">
+                <File Id="fil029A09C793CC9837DDB968DF506459FF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libjpeg_plugin.dll" />
+              </Component>
+              <Component Id="cmp421AD2F5E044EC43DAFB42090CD753A6" Guid="{81A8407C-8926-4A60-A3AD-B535247A7EAD}">
+                <File Id="fil3608D1F43703948D5A5FD3A6B23A9A93" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libkate_plugin.dll" />
+              </Component>
+              <Component Id="cmp0F056DEC74AF40F915BEC8EF286D8BF0" Guid="{AF626C0D-569F-4FE0-B525-CB4B88E983BC}">
+                <File Id="filEA5CBFFD67FFA6CCE9A29F6F607BCA31" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\liblibass_plugin.dll" />
+              </Component>
+              <Component Id="cmp45452B8606893549A0DFA61656DD694A" Guid="{930F5334-E288-45EC-9BE4-4E0E8055F2DD}">
+                <File Id="filFFC1E60C91BB081FF2E2771F65F641E5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\liblibmpeg2_plugin.dll" />
+              </Component>
+              <Component Id="cmpAB193E0395920E7B1B654EFCC72885DB" Guid="{853D3BFD-98A3-4549-A6A2-4F4C9C3C83AC}">
+                <File Id="fil5483E404EDF6C23F310AD19066481ECE" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\liblpcm_plugin.dll" />
+              </Component>
+              <Component Id="cmp8EACDA662BAA618FDF03397829979F36" Guid="{269ED168-434E-42F2-9821-F1B8FEFE90CB}">
+                <File Id="fil1D699DFC209B57D3DFA6BD1D71A7D68F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libmft_plugin.dll" />
+              </Component>
+              <Component Id="cmp6B4F65A964F26442AC2B059E7ED31608" Guid="{D99254E1-11AF-41C5-9244-C3E3EE68A33A}">
+                <File Id="fil2D6F9D9DB4F03AEF5308DF3C7A9F8D14" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libmpg123_plugin.dll" />
+              </Component>
+              <Component Id="cmp9C4A3AA9E762E403D47D8D5231B4B495" Guid="{EE4FA5E5-E887-4E07-B02C-A2F74D960B55}">
+                <File Id="fil5FBEC8258232E128D885D01814606A70" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\liboggspots_plugin.dll" />
+              </Component>
+              <Component Id="cmpB0C97FFDFEDD5E7A90F8DC38973FD7E3" Guid="{006F6765-AE27-429B-8E60-B9BC8AF36F0B}">
+                <File Id="fil7BE82A38CB27348C79551AF64ADD3485" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libopus_plugin.dll" />
+              </Component>
+              <Component Id="cmpBA532413E4339FFF93FE76E2963D9FFA" Guid="{E4620DF7-939D-4A1E-9D29-C27A39A76023}">
+                <File Id="filEA906099B0CDD4A3470098B1C5A57509" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libpng_plugin.dll" />
+              </Component>
+              <Component Id="cmp93184ABF20F603F99CB66EDABE40E82E" Guid="{EDF6B47E-A727-453B-A174-029D8DC057BE}">
+                <File Id="fil8ADA4500F287521591FC30B057FC2977" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libqsv_plugin.dll" />
+              </Component>
+              <Component Id="cmp1FDE3B259BC4ACCB54941C32E170C129" Guid="{F9688E11-35E7-4EF9-B345-D5E35968EE8C}">
+                <File Id="fil3AE0BDBBF902143B7FA4BA07ED9AED4E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\librawvideo_plugin.dll" />
+              </Component>
+              <Component Id="cmp56CEFF26A0A978F9C6C46092EF2E24BD" Guid="{393F228E-93DC-4103-9B08-BAC7A546B08F}">
+                <File Id="filEAC2D93EFD23216C22EF2AB5FEAE9514" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\librtpvideo_plugin.dll" />
+              </Component>
+              <Component Id="cmpF10BEC0B6F04B637BF1D41386FE3A4D0" Guid="{B231CE78-1EB5-4875-BC3B-CFFBD18FA1A6}">
+                <File Id="fil28AB33B96DB481CB50D0D449ECDC2707" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libschroedinger_plugin.dll" />
+              </Component>
+              <Component Id="cmpE68E42C73B6F2F1F11DD774CE84C880B" Guid="{0A4C6824-66D9-410A-94DA-38D5C9E9D899}">
+                <File Id="fil3F24D52C7BAFE48CD37F3503E4A63FA2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libscte18_plugin.dll" />
+              </Component>
+              <Component Id="cmpB2F097EAD1E04BB1F28ECB2D847DB3AD" Guid="{F14A1616-3B1E-4892-9E4A-57CB5CDCC5CC}">
+                <File Id="fil7E7521F035FDFE0DED8966BFC37FF118" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libscte27_plugin.dll" />
+              </Component>
+              <Component Id="cmpAD52C982386E9EBF43EBE5093C82A713" Guid="{0D6454EB-4035-489C-A5FF-6901191D75D2}">
+                <File Id="fil4030F0C2DA72CFD83AFEDB0CA260F98C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libsdl_image_plugin.dll" />
+              </Component>
+              <Component Id="cmp7A647DD4C8D05454C1AADC477E0BE2F3" Guid="{00836FB0-9004-40DC-B6FB-6CEB635458E2}">
+                <File Id="fil83B32850FE3B2D5AC23B243E8123D51C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libspdif_plugin.dll" />
+              </Component>
+              <Component Id="cmp1F340EDA3705A12C91708E6F1C2E6646" Guid="{1B4DE2B7-6333-493F-B95A-042D360D0A99}">
+                <File Id="fil7EE7CE77829C138CE7D905E1A39006B2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libspeex_plugin.dll" />
+              </Component>
+              <Component Id="cmp223A28B64AFC0C5511D36E6BB1064A24" Guid="{7112697D-B249-4B59-A982-320B0209E2F2}">
+                <File Id="filE94E8D52073A54CADBED5608F0BF0A0A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libspudec_plugin.dll" />
+              </Component>
+              <Component Id="cmpEA880B3A86B575D922DF3DD16FEF10BD" Guid="{F7243D0C-E540-4B91-BA4E-4300DA48FBF3}">
+                <File Id="fil950963CF1735AB3717409A8EB7F81554" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libstl_plugin.dll" />
+              </Component>
+              <Component Id="cmp73245CEFE0C46703014D347931173F8B" Guid="{FFD38EDD-72C7-4D06-BD25-32FFC74DAC02}">
+                <File Id="fil8116E8556953E471C35A5EC66DE1C7AA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libsubsdec_plugin.dll" />
+              </Component>
+              <Component Id="cmp441493996F63F453738D9E553DBE2976" Guid="{18CCC0D9-0803-4CCE-AFFD-FE02BD181B77}">
+                <File Id="fil527C490649F39F238CACE378DE9F9E45" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libsubstx3g_plugin.dll" />
+              </Component>
+              <Component Id="cmp87A0122CAA77C5B057C5BE30CE593890" Guid="{3A0B3557-9F16-4FED-BB02-B9B7C279BC5A}">
+                <File Id="fil8DA1ADAF4D67E6201E5B88C405E11002" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libsubsusf_plugin.dll" />
+              </Component>
+              <Component Id="cmpE1A28E6E977E23273C2C0EDD52744E68" Guid="{87A2C203-5087-4C31-BDEA-FC3BF4EDCC51}">
+                <File Id="fil6FAA4C36C834553F57140ABB5598690A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libsvcdsub_plugin.dll" />
+              </Component>
+              <Component Id="cmpE55D40B32737C7F48BF5F2C7161729F1" Guid="{B256B613-5D50-4AAC-AFF6-DA52FE586781}">
+                <File Id="fil30E228131F9B3CD16CA3BC3095C98B03" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libt140_plugin.dll" />
+              </Component>
+              <Component Id="cmpA6CB6A17D044AC4D2C39CB5B92D65F1D" Guid="{AFC43AEA-7EA5-41EB-988B-7F0B4DC52BEB}">
+                <File Id="fil271EB7F65E8206121DB8632C18752534" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libtextst_plugin.dll" />
+              </Component>
+              <Component Id="cmp705B38FF5445032C7A2B681E48444AD7" Guid="{47FBEEE0-9399-4029-9CDB-BC5942609345}">
+                <File Id="fil6B68BD5CF9FB2F7D954ED777234C6184" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libtheora_plugin.dll" />
+              </Component>
+              <Component Id="cmp09544AB7667F2BBF0852148DCA5C3A90" Guid="{B3FAC2EB-3625-4087-804D-00B821F72B7C}">
+                <File Id="fil3F4589DB2562FE89A1810A6DDFE217E7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libttml_plugin.dll" />
+              </Component>
+              <Component Id="cmpE351B52B8E2076C028F0C63AC79A8B38" Guid="{A2DC9164-89C3-4CF8-A771-D0CB39581C71}">
+                <File Id="fil02BA7CE695C78F8DBBA30141D4E1BA83" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libtwolame_plugin.dll" />
+              </Component>
+              <Component Id="cmp25E6B90ACB9727DACD8C339620BBBACC" Guid="{7B4C11F0-787C-43F1-81E5-43F69EB15C03}">
+                <File Id="fil66F29C0A302C1311F1C0BDA36D3D1D34" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libuleaddvaudio_plugin.dll" />
+              </Component>
+              <Component Id="cmp07F0F2D3F656954FEEDD7881A49B79CD" Guid="{975A474C-C3AD-4689-B46D-392EE8A78D5E}">
+                <File Id="filD98DA9BC21FE93E50DDEFEDE5B5425A6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libvorbis_plugin.dll" />
+              </Component>
+              <Component Id="cmp7494CBCC9DEB02B88382FD5455AD7591" Guid="{9223FC11-313C-4846-8198-50C261721A94}">
+                <File Id="fil323B4D9D9A2725EB48F2DABBE9041F94" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libvpx_plugin.dll" />
+              </Component>
+              <Component Id="cmpD18E80AD2AAFE0F349ACAF1A50D6A762" Guid="{5AAF2AD2-AE69-4004-909C-3201646785C8}">
+                <File Id="filC62C189C5BE30BFBA4A815782DEBEEBB" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libwebvtt_plugin.dll" />
+              </Component>
+              <Component Id="cmp2AE0EA2A0D73546E9BE3807A651FF39F" Guid="{6658F4F9-4284-4542-BB38-A23C97FC1A6A}">
+                <File Id="fil5C5693D1942ECDC90E8FE8CD204BEBC8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libx264_plugin.dll" />
+              </Component>
+              <Component Id="cmpB80B1AB52449FA2E3593196B2DB35D16" Guid="{C0B5EA25-1DB6-4A10-A2CE-39E74B57DD8E}">
+                <File Id="filD66916EB408033C9C828551E17DABAAA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libx265_plugin.dll" />
+              </Component>
+              <Component Id="cmpAD8545DC98E906DCB12526C32CA99F66" Guid="{E7C4C06C-8F07-46BD-90C7-C25CA6512875}">
+                <File Id="fil0700D53491117A3F829A948FB4220337" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\codec\libzvbi_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir9D9F99911EC327C93B59A682D42FD343" Name="control">
+              <Component Id="cmp5145C574F9C4D0E2668241EE7CCC9E89" Guid="{AD6C5438-5EDE-4A9E-A66A-98DB6E9E50CB}">
+                <File Id="filDD85FCC683018F22EF3029D4ED1ED195" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libdummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp3F2FC3DBC070A303A1C8696BD1156C4F" Guid="{C38306EB-8B8C-461A-9710-1CE2D337B321}">
+                <File Id="fil818403134BADC58B4337B682744301DD" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libgestures_plugin.dll" />
+              </Component>
+              <Component Id="cmp0E41536BF81628E821ED291AFBEC857D" Guid="{3BB5EF3F-3B0D-4197-AFE9-D6C7D3A9C1A9}">
+                <File Id="filA0A2E0D3A072C732A0C5BD874164247E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libhotkeys_plugin.dll" />
+              </Component>
+              <Component Id="cmp89B5BC3DD6A0A0FE87C01C449ED44468" Guid="{C6224312-A360-41ED-A96A-55BA46B64014}">
+                <File Id="filCFF34BB261CEF2C5D50CB65D92BAF6E7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libnetsync_plugin.dll" />
+              </Component>
+              <Component Id="cmpE56929B8E0356021E30EC22F6BD8BF6B" Guid="{D0DCAF2F-B474-45E2-92DE-0B0D77EA904C}">
+                <File Id="fil4B2CC00D22A83FC961D05D63E3259593" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libntservice_plugin.dll" />
+              </Component>
+              <Component Id="cmp2B5E94F8815772DFED78DBA630CD79FA" Guid="{C5F86745-9E60-4EA7-A7EE-30D547291977}">
+                <File Id="fil55BC8FA30985A2C4F2EE770D90546607" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\liboldrc_plugin.dll" />
+              </Component>
+              <Component Id="cmp10E3D9274C662CAFB68B87E42922005A" Guid="{D0F810D2-A5F3-42F3-BEB1-BEE5F76FA82E}">
+                <File Id="fil6E020C51C299BB3A2C3CB93304296401" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libwin_hotkeys_plugin.dll" />
+              </Component>
+              <Component Id="cmp2AB49715C94F8DA656915758E70E2434" Guid="{BE4B26B1-83EB-4D02-8144-90D8436DBCA6}">
+                <File Id="fil01926D1E25B7DD78AC346A6CB8FFCFF3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\control\libwin_msg_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir0F29F42762B752D94B21B801000C31B1" Name="d3d11">
+              <Component Id="cmp4B7773FECEF03154261C2D7B88033D9E" Guid="{A62D78DD-3C93-4488-9680-7D1253B4DD05}">
+                <File Id="filCFF5C4CD031BC31F6DE7D7709A3867D7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\d3d11\libdirect3d11_filters_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir0C13CF79F74823706BEA0C4084128ABE" Name="d3d9">
+              <Component Id="cmpD5F63DDC1CB1AA97498FDB30F1047DDE" Guid="{02EB1D4D-F966-42AB-9CFE-DE73CCAB8F0E}">
+                <File Id="filF65F8B65D2850BEC31AA569523E2F416" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\d3d9\libdirect3d9_filters_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir1B9461D380B130409D90A592DAA105C8" Name="demux">
+              <Component Id="cmp7CCFC696584B028A30B66675AF6E23E1" Guid="{5BF5BB44-FA38-4F56-A4A6-249E05D1EFF0}">
+                <File Id="fil28A68CE81B3E22A55C848BAF3D3DA716" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libadaptive_plugin.dll" />
+              </Component>
+              <Component Id="cmpD7D1461AD71CBAD933CE071F7EBD24BE" Guid="{4A973D7B-7C85-4515-960F-5AD083AC5E6E}">
+                <File Id="fil0B1E3BCC6A6B2A2360DA60CDF21971D0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libaiff_plugin.dll" />
+              </Component>
+              <Component Id="cmp4557DB3791F45B4D9CBF12D6885E8389" Guid="{2B05EE0A-302D-4C0B-901B-4509EFD8A26A}">
+                <File Id="fil93281D0576DD2212FDC6F8E5AD917A9B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libasf_plugin.dll" />
+              </Component>
+              <Component Id="cmp6BC882FE2FBFD028054F3A7A6C854D7E" Guid="{5E8C67BB-DAA1-44F5-BEBA-3A0115ECFD07}">
+                <File Id="fil9F05792A985D6041BC3726AB9C5FF0E5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libau_plugin.dll" />
+              </Component>
+              <Component Id="cmp97F48BDA3E55D330BBD2EF6208A8FACA" Guid="{D95BD679-97DD-4CC8-9CF5-DE7BBBAA1BB6}">
+                <File Id="fil855095D3FCF049AD9680F26748E53328" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libavi_plugin.dll" />
+              </Component>
+              <Component Id="cmpFD92EA710897B8C853AFF78527992CE6" Guid="{3281040B-B82C-459A-9D47-A394A9D9944C}">
+                <File Id="filE4F3ADDA2720DEB97DB096DD1AB769F6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libcaf_plugin.dll" />
+              </Component>
+              <Component Id="cmp504C6FD276C83A40AFBF55E88ADC4703" Guid="{1F6DAF3F-8EDF-4272-BBCD-968A22AB96CB}">
+                <File Id="filBEF0BD8E13BE88AFE9953FDC8D5CC500" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdemuxdump_plugin.dll" />
+              </Component>
+              <Component Id="cmpD758002F692E94ED0FDA49EEAF578339" Guid="{B8C3B095-E003-4806-91C5-D0FA2A254CF0}">
+                <File Id="filB7E1605B99F5E85646AC19D2E7C24825" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdemux_cdg_plugin.dll" />
+              </Component>
+              <Component Id="cmp470DBD9CA16C4C17444176F36D851E11" Guid="{FDF98482-790F-4A46-B514-035E9F1CAFA0}">
+                <File Id="filBB9E69C4C75F06261A6F840EB4FB0E5D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdemux_chromecast_plugin.dll" />
+              </Component>
+              <Component Id="cmp820D12B0797A47C1D539B4996AC327D5" Guid="{D1642573-6C9E-4192-92B1-85C152FB0866}">
+                <File Id="filB8BEFF29670D1D490CB1783FD6305AF2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdemux_stl_plugin.dll" />
+              </Component>
+              <Component Id="cmp2811809B4C9A0DB2ED18ED43D0D3F5AE" Guid="{DC64DFAE-0985-46BC-978C-AD9C9A52002A}">
+                <File Id="fil53686490E5B67736B7D8E146FA97702A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdiracsys_plugin.dll" />
+              </Component>
+              <Component Id="cmpBE7617A0A5CFDF65072DD2D20B533A55" Guid="{BC8A608C-A49F-4192-9878-B077BD4E7403}">
+                <File Id="filB5AFFC3DFA863F821FE58880BF716D58" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libdirectory_demux_plugin.dll" />
+              </Component>
+              <Component Id="cmp20AA12938275FF89B2F37E6F4BC6E0BA" Guid="{61A01140-BF74-4763-BD58-300A98646F8B}">
+                <File Id="fil9A5FF31EA66427ED7037DF775028CB63" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libes_plugin.dll" />
+              </Component>
+              <Component Id="cmp1D59BF18B64AD7F7645CF4E768B1A70C" Guid="{90205959-2E64-4549-B826-0C4A7124C225}">
+                <File Id="fil9382EB542A040358313B653CD71D439A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libflacsys_plugin.dll" />
+              </Component>
+              <Component Id="cmp600F8DF1AC16B23835EA9FC166EDA277" Guid="{9C556B3B-4CD2-4589-85EF-2E82F9C24EE7}">
+                <File Id="fil0793EA8746FBB0FB98B531E7360BB054" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libgme_plugin.dll" />
+              </Component>
+              <Component Id="cmp5116FFE46EFEC6ED0D47E01A3D46870D" Guid="{BBB7770E-D85E-4113-96FE-C8E81C38CA80}">
+                <File Id="filA8111C6F6A7440EA28509C8238595758" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libh26x_plugin.dll" />
+              </Component>
+              <Component Id="cmpA1D56AFBCEA273C895A709E509011025" Guid="{5BC4DA48-1C6B-416A-A7D7-D77FF15B02E1}">
+                <File Id="fil218688AEED12A7A9756C4BED7EDDB7B8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libimage_plugin.dll" />
+              </Component>
+              <Component Id="cmp0F0FF6F3664212023DD122552FF7244D" Guid="{D52DEC2E-6AF2-4988-AEF4-20436CEC95E2}">
+                <File Id="fil746F37490266BEC9017C7F6B315549BF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmjpeg_plugin.dll" />
+              </Component>
+              <Component Id="cmpD038CED05DE28EE211677ECAF9B6ED68" Guid="{19CF1DF9-B7C3-4483-9560-FFA34AAB1E78}">
+                <File Id="fil739636A9073545B9F682352A169A75DB" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmkv_plugin.dll" />
+              </Component>
+              <Component Id="cmpE85FCB99390C7F38861260162E77AC71" Guid="{DB529223-613A-4E77-AA6A-259FF8F0BE10}">
+                <File Id="fil8B6C85C39B5267B97E74EF0E9D3793A6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmod_plugin.dll" />
+              </Component>
+              <Component Id="cmp2769EB07311D81412BC5140A5BAE5890" Guid="{DC6FFD15-05C2-42D0-984A-D4D53298885B}">
+                <File Id="fil5A965FD78BF09E9ED8536B7617EE1A36" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmp4_plugin.dll" />
+              </Component>
+              <Component Id="cmp3C5837C9B5B4F5C4197F071FFDE86D02" Guid="{10E03DE1-B5DE-40BC-9FA5-55F4EA80063A}">
+                <File Id="fil3649EEB29D0F482E8FA5224BD83E4A43" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmpc_plugin.dll" />
+              </Component>
+              <Component Id="cmp77F55A424D287D3DC65BD628D57FC77C" Guid="{C12FE947-1EB7-4180-9BD3-8F37A85B6003}">
+                <File Id="filC875BBBEAB45C7F64D7B6B67C828905C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libmpgv_plugin.dll" />
+              </Component>
+              <Component Id="cmp2785E0F14303C28BBA42563E0BAC1905" Guid="{B78F87C4-5A8F-40B4-80D9-053B9F464DD2}">
+                <File Id="fil893EDECF43BA1BA25A011CB4D4653949" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libnoseek_plugin.dll" />
+              </Component>
+              <Component Id="cmp51ED24A4BBFBB040635F5A1F959BA8A9" Guid="{6EE6869C-D9CA-430B-A4FC-B28F38740C66}">
+                <File Id="fil97F5B0771BA5738C0B28AA28685ACFF6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libnsc_plugin.dll" />
+              </Component>
+              <Component Id="cmpDC7863012B455A2369D96905611F6B2F" Guid="{DEA7021B-26DF-400D-919E-80ED649BC255}">
+                <File Id="fil3D2B4907AD9E5452A818324FD7F47FE8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libnsv_plugin.dll" />
+              </Component>
+              <Component Id="cmp872396F58B6AD33F848F74F8A684BE58" Guid="{D6083A6E-E6EA-453E-A80E-072BF5886104}">
+                <File Id="filBC899CD804952C46D14D6E627993EF3B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libnuv_plugin.dll" />
+              </Component>
+              <Component Id="cmpD2A06715FA96E0C0EBD0F261946D7F80" Guid="{70777727-18A5-4D54-8328-2D4C547011FD}">
+                <File Id="fil4CF2156B8E0A1C8CF31BE3849FB772DA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libogg_plugin.dll" />
+              </Component>
+              <Component Id="cmpA64CFC8457CE56BDA7566494636CD821" Guid="{5D8E659D-3989-4DD5-9104-0AC5674B7471}">
+                <File Id="filB521FD4A0E7C4B6AE954A01D8CF137C5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libplaylist_plugin.dll" />
+              </Component>
+              <Component Id="cmpEF63DFDD37B6323B238AC947E87385B6" Guid="{6F4F3163-9554-4B0B-9012-288F0FEE1A95}">
+                <File Id="filE6C3923BA8ABFB47E36E5229A135DD70" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libps_plugin.dll" />
+              </Component>
+              <Component Id="cmp066F978F35C9DB7D2510F6ECD7307AC9" Guid="{15DBCA2A-CE2F-4AB5-8A26-3E32A80EFD45}">
+                <File Id="filAEC9995011B8966C198BBD25152C66B3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libpva_plugin.dll" />
+              </Component>
+              <Component Id="cmp3876EFC2499C947050CDD55C95ECA92B" Guid="{E86AE04B-DD37-4846-A762-B8DFF0EA59D6}">
+                <File Id="filE95D15966B4D419D4EA88A0EF45F4E84" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\librawaud_plugin.dll" />
+              </Component>
+              <Component Id="cmpCFE8BBE0925F4B7FEB8F2BE6555BA6C4" Guid="{77ACDFD8-5FC9-43F2-A10B-609190389547}">
+                <File Id="fil9983F806B98A0BDCC36EB3CC7FD47EBA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\librawdv_plugin.dll" />
+              </Component>
+              <Component Id="cmp2E54ACEEFEC68A0057D40DD9322F26A8" Guid="{4E2D73D6-25F0-4954-B13F-A254F583EE6F}">
+                <File Id="fil79138F48A78BAB9BBCBBCB8E819BCCB8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\librawvid_plugin.dll" />
+              </Component>
+              <Component Id="cmp8DDCDF1629CDCBF1B16423EE3AF0BBE0" Guid="{6F9F9AC4-8F52-455A-9E26-B152F5CDAC0A}">
+                <File Id="filD384CE12CD7478CA4A29E3BC0E60F605" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libreal_plugin.dll" />
+              </Component>
+              <Component Id="cmpAD6EB1555A56BCBA2FD3316FA9C4C4AC" Guid="{84D46AD6-1179-4AB8-B0C0-4C16373168A9}">
+                <File Id="fil659085D0564C94BBFA9324227DAC8258" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libsid_plugin.dll" />
+              </Component>
+              <Component Id="cmpA565BBE666E811452D3D512A67890B08" Guid="{D946DAE9-7A50-4D2E-8EA9-89B79178A4B8}">
+                <File Id="fil3C3FA612467CC705DD26148F5E1B9CAF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libsmf_plugin.dll" />
+              </Component>
+              <Component Id="cmpEE2675B1DE1A2D68E04EF9F451077B9A" Guid="{A4E13EA7-B76D-4EB8-9917-221E1AC9DEA4}">
+                <File Id="fil15474766F935A93A9A60431A3B255B62" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libsubtitle_plugin.dll" />
+              </Component>
+              <Component Id="cmpFB4F6BD31080BAE05B19FAE0EFD24F12" Guid="{31506547-DF54-4123-B21D-1D348E36E55D}">
+                <File Id="fil7F8A480A3ADE6969DDE581B93CD2918D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libts_plugin.dll" />
+              </Component>
+              <Component Id="cmp5CD422D1C8BE5A8AA4E786BF6B23542F" Guid="{B15809B2-EF08-4E82-967D-FC8B06712849}">
+                <File Id="fil5AAE3B9AA1FAAE580BD60540A299BAFB" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libtta_plugin.dll" />
+              </Component>
+              <Component Id="cmp3D29974666C9F92F5B4E8D44A3D74E2F" Guid="{5E28938E-D55C-4459-97B7-436C7396D5C4}">
+                <File Id="fil564D730BC2BDADB2A57CDB759FA9DB94" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libty_plugin.dll" />
+              </Component>
+              <Component Id="cmp6CA39F5D7ECBC43ECA29A426E1FD2DAD" Guid="{21C559BD-D6B5-4036-BA45-9F16A897CE3B}">
+                <File Id="fil6BFD10A20E9E115B897D3B503833FC18" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libvc1_plugin.dll" />
+              </Component>
+              <Component Id="cmpFB4A296CC506673422A4741EC8147DC7" Guid="{0BDE7E6F-3666-4E87-9682-60CE38A054D3}">
+                <File Id="filAF94F4DC5CD94C66FF990A097BE8D1F0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libvobsub_plugin.dll" />
+              </Component>
+              <Component Id="cmp3A45E26709F9045C2E9E9793756D0679" Guid="{E12E977D-9E00-4267-B2ED-36AE0C2012B6}">
+                <File Id="filC0F55758911838C931803FA16F11DBEA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libvoc_plugin.dll" />
+              </Component>
+              <Component Id="cmp575C78DAD85E165F3427EFE0AD8FBED3" Guid="{09B1574E-0C8D-48C7-BDB5-E80742E9B1F9}">
+                <File Id="fil29B18BBC14B183049663BF39155C4C51" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libwav_plugin.dll" />
+              </Component>
+              <Component Id="cmp02E18B6CE9C394294DB8E52B2682A943" Guid="{677FE201-9DF7-419D-92D9-10292D358D1E}">
+                <File Id="fil11F74FF58CD9166D27548ACF477C793A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\demux\libxa_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirC648C1D9A9FC251DA7DF3A9038F116F5" Name="gui">
+              <Component Id="cmp92854631BFB94088EC72054306D04B91" Guid="{D88E96D6-FCD8-455A-B6B4-7AFB49023238}">
+                <File Id="filA2EF51B78DD6B64A9EC3CF3D0D9407B9" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\gui\libqt_plugin.dll" />
+              </Component>
+              <Component Id="cmp795F741D404FA2A4ABAB9821A18477B3" Guid="{BF95D2B2-90D4-4C73-B32F-5344B4267023}">
+                <File Id="fil271CF81A63CF945B4534E3CC949E2D2D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\gui\libskins2_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir6BF8AF9C4F12C63944EB2134B015093B" Name="keystore">
+              <Component Id="cmp6CB097167335C9FB060E56F710A4CDFB" Guid="{ECA5EC61-CC01-460F-90FF-7E005D9600C0}">
+                <File Id="filEE21CB98CF1C7131710AAF30F84F1E8D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\keystore\libfile_keystore_plugin.dll" />
+              </Component>
+              <Component Id="cmpD9F2D3800E730B5F8E694323152BC29D" Guid="{D3847C59-0ECB-4796-B83B-382B294875F2}">
+                <File Id="filE1BBBAC6542B8DCBE460759447B3E054" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\keystore\libmemory_keystore_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir5DB6A6E9EE8DE3826249D9D2576FA7EB" Name="logger">
+              <Component Id="cmp07EF137D3551FCF0594DB3CC161A0802" Guid="{FCE9C302-00E2-4BB2-A4A9-38472C9B472F}">
+                <File Id="fil1BC782C6B3C7953FD2D80139442AFC3F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\logger\libconsole_logger_plugin.dll" />
+              </Component>
+              <Component Id="cmp55F8C81A05A127C5276B7CA630A8BB29" Guid="{344996A0-50D2-4447-8397-99D9F7AC30A7}">
+                <File Id="fil32D3B44659205C030086948102C2A5FF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\logger\libfile_logger_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirDD0D2D26A8E8354CDDFFA5506F69891A" Name="lua">
+              <Component Id="cmp996B95B4A687DA8FD86FE8777F301DD2" Guid="{721B035A-F215-4262-B93F-E82872F6441F}">
+                <File Id="fil0A84046C770F5C2E792BFF5231BB23B7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\lua\liblua_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirBB03FDD0F334CF2CF7E8F8FC14B28E5E" Name="meta_engine">
+              <Component Id="cmp5FD137B92067D99FCB92F0AEB9B6D640" Guid="{424DCAF8-1EE4-46D3-A3F8-FC359E966580}">
+                <File Id="filAB937D1146A5480DFA39873CC481445D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\meta_engine\libfolder_plugin.dll" />
+              </Component>
+              <Component Id="cmp69D31A1ACEAE2EE84BD1AD99E39C6F86" Guid="{A92B72EC-BAB4-401F-8C50-7606780E8CA4}">
+                <File Id="fil96B29355F1BB51E5E7A531D92D7330BD" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\meta_engine\libtaglib_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir8D4F8B2F3BDB7E658D6592DCAB56CC72" Name="misc">
+              <Component Id="cmpF4931195782B2CFEB4DC049CD4716880" Guid="{3318B0C6-50D2-40F7-809F-614460D59DA7}">
+                <File Id="fil7CE786D9E951BB1D711AB385E6F48657" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libaddonsfsstorage_plugin.dll" />
+              </Component>
+              <Component Id="cmp102421D322DE251120544274030DFC95" Guid="{B8BD210B-67A4-42EE-9F9A-95AA9772B088}">
+                <File Id="fil5980C97BC1A5C16DD2DEE28856F81733" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libaddonsvorepository_plugin.dll" />
+              </Component>
+              <Component Id="cmpA7AC2851DC6E076D296E07F534D5EC90" Guid="{1C74DC68-E0C9-40CE-82EC-4D4172183D1E}">
+                <File Id="fil840387E643188B5C60AB100C868EFA0D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libaudioscrobbler_plugin.dll" />
+              </Component>
+              <Component Id="cmp6AF6355E99CDB31175327BA626492D85" Guid="{7B471037-BBE7-482C-AECA-B59D6AABED86}">
+                <File Id="filBCB8668579B08318CC25F660953A9DF1" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libexport_plugin.dll" />
+              </Component>
+              <Component Id="cmp2CEBFA24041FD511F62DB1C87DFF296E" Guid="{EBFC5C88-331C-4069-B288-29E5D01B7D90}">
+                <File Id="fil3EC4703ADDEC6BCFC0F8F6FEB672D17C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libfingerprinter_plugin.dll" />
+              </Component>
+              <Component Id="cmp8B132B5CABA2F4F89554AF18FCA0CA02" Guid="{66F2A5BF-151C-4188-B5A5-D010AD7DDAFB}">
+                <File Id="fil4E35C12425966EE7A5934FC9D292FD2E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libgnutls_plugin.dll" />
+              </Component>
+              <Component Id="cmp358302A218848978DBAC25993CEFBD9A" Guid="{2C8158F9-5A31-4853-ABA4-3E2AC0FD9E45}">
+                <File Id="fil0B17C119FFBA0773237697A812CF7CDF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\liblogger_plugin.dll" />
+              </Component>
+              <Component Id="cmp18529BBB21D48E99CF60B7CF4845AA01" Guid="{CCC3EC73-A4EB-49F7-98CD-10D65A9A69B8}">
+                <File Id="fil15301D6622DD3138BAFFF95FC290FB8D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libstats_plugin.dll" />
+              </Component>
+              <Component Id="cmp5D30C27C42C339B2A2C7DDDC7FACA8C7" Guid="{C61FD992-FEEC-4907-836C-EB3A6643D810}">
+                <File Id="fil0C489E751B94F0B9B17B9C84CD9F6B44" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libvod_rtsp_plugin.dll" />
+              </Component>
+              <Component Id="cmpCF9C6C1F3D4DCBCAACCFC51FF7480CF3" Guid="{6790F5A6-1745-4588-ACE9-1BD8445EE7F1}">
+                <File Id="filAD7C47411E873BA1B3B937635B8D2A84" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\misc\libxml_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir46F0DE246BF757E6F12E09E283F1D613" Name="mux">
+              <Component Id="cmp6A175CC80B00A2647A8A9564A37A14C6" Guid="{35AEFF52-4819-435C-BD30-966E42A81CF0}">
+                <File Id="filFA7D5ABB4EA0103554019645F77983EA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_asf_plugin.dll" />
+              </Component>
+              <Component Id="cmp6A1B0D9DFC73F49D78EB97A5A625F0BF" Guid="{19C596B1-68DD-4935-8B09-4E241AE137A6}">
+                <File Id="fil104ED47AFF8295444BDF298EE28F7CE1" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_avi_plugin.dll" />
+              </Component>
+              <Component Id="cmpA7BA7A25612FE65BDB260737A4CE84FE" Guid="{337DBE34-318A-493B-853B-40A406082FC7}">
+                <File Id="filA352E60C63FC156AAB87FBC603FDD838" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_dummy_plugin.dll" />
+              </Component>
+              <Component Id="cmpC6B92D4006744830D52E047D7D1075B0" Guid="{26BDCADA-B012-4866-8CEC-CC98ED233FEA}">
+                <File Id="filE775EDAFBC6C807D2C18FE3BCB61BEF5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_mp4_plugin.dll" />
+              </Component>
+              <Component Id="cmp79EC501F659632EA8961D3F539B43EB3" Guid="{7D6599D4-799A-4CEB-8908-2E37921A5523}">
+                <File Id="fil55DA0BC927C6FEC689DA0DCFFFADBED6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_mpjpeg_plugin.dll" />
+              </Component>
+              <Component Id="cmp60DEBA06291BDBB82EB9446F91137D5E" Guid="{BF485970-BD3E-404B-897F-206290D02969}">
+                <File Id="fil4701FED94B8590911A36DBFFCDCB7DEF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_ogg_plugin.dll" />
+              </Component>
+              <Component Id="cmp965FEF921F2B07EC720830CD0C9C129F" Guid="{82CD45EE-F186-49F3-ABCF-946DFA10DC60}">
+                <File Id="filF0A3F980EBE414BEFE5D511516323671" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_ps_plugin.dll" />
+              </Component>
+              <Component Id="cmp322BAC5E416BCDC0C378AF82487BA0BC" Guid="{ED2EABD8-1991-4863-B84A-4EA0252B9276}">
+                <File Id="fil58DFAE571070ACE73B215050BED830F5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_ts_plugin.dll" />
+              </Component>
+              <Component Id="cmpB5D1228E8B019DEC9331F76BA6A2EC7B" Guid="{CC0DE471-DFCE-4808-93D4-C24E319ABE77}">
+                <File Id="fil403A64D1B5B9C71CE62535F1E0A0A174" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\mux\libmux_wav_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir311C8C07E4FF262CA43CA02257E9D7A6" Name="packetizer">
+              <Component Id="cmp27F936984807F14864DC0AB6B2D29538" Guid="{78C77EB1-9764-43E9-83FF-D34D2BC7A441}">
+                <File Id="filE870EA915A376FBC76B57D61AC7F30E0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_a52_plugin.dll" />
+              </Component>
+              <Component Id="cmp625F486AD7C9368DBA9BB6FEBD893A44" Guid="{E639A1E8-57AD-46F8-82D3-734FE5878F50}">
+                <File Id="fil5FF503182AECF0812FCEC7DFCFCDD298" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_copy_plugin.dll" />
+              </Component>
+              <Component Id="cmp3A39467292D393E5035ECE651A163630" Guid="{E7B782D6-65F7-4756-A94F-2CB15F6454F0}">
+                <File Id="fil94140211EA70D074250E4C646A39D82F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_dirac_plugin.dll" />
+              </Component>
+              <Component Id="cmp0F94B5A65229BE6C42A888D4BCA73ED5" Guid="{F5BE21E8-B6B9-47A3-AB24-44341A856ECC}">
+                <File Id="fil502CD839B77DF0852ED9088E55F23A9E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_dts_plugin.dll" />
+              </Component>
+              <Component Id="cmp943DD7620C83FE5C97614DDE45AEA803" Guid="{BBF9720B-CB39-412C-BF58-8D4DF72C4AF7}">
+                <File Id="fil3AC7421EEF12EC47BBA159E40DFCA952" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_flac_plugin.dll" />
+              </Component>
+              <Component Id="cmpDB7107F5A1155CBD674B59976E63DE40" Guid="{97A4E0D4-754C-4D22-B116-4D97BCEC5324}">
+                <File Id="fil0319DC179259813CF4173C3927E8EB01" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_h264_plugin.dll" />
+              </Component>
+              <Component Id="cmpB582B5C809556799A42CE16AF51243C5" Guid="{356C8B24-0936-4B85-AB73-77AD79013E7C}">
+                <File Id="filBAFEE27B488D74A25CAFB6731ECC63E7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_hevc_plugin.dll" />
+              </Component>
+              <Component Id="cmp3271F950810CEEB280EFCCFB92B76705" Guid="{675B6151-2BCC-427A-B858-F0AA99A3E387}">
+                <File Id="filA8B6135A467AB73E16580B1988C1843F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_mlp_plugin.dll" />
+              </Component>
+              <Component Id="cmp2CD090D4C7BF769DB3FD46EC1974B24B" Guid="{BE336798-451F-4374-B4B6-97ECB0D4510D}">
+                <File Id="fil74A8C4A321437215068EEC8871A1025C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_mpeg4audio_plugin.dll" />
+              </Component>
+              <Component Id="cmpD7F4D5A4B1B81B3984FED4659E556436" Guid="{5F3707D5-F030-44F2-A9DE-810786BF575B}">
+                <File Id="filD62CBA8CB2BBAD30D8E0A46BB7549498" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_mpeg4video_plugin.dll" />
+              </Component>
+              <Component Id="cmp3FFF901F0679B7E551E39A79AB47E702" Guid="{B958E4DA-5C94-49A0-9018-3F7F5CE32356}">
+                <File Id="filFC6ED3D889365178E7C991255500466D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_mpegaudio_plugin.dll" />
+              </Component>
+              <Component Id="cmp5DBC4654C42B950838AAB6C28DD993EF" Guid="{0C148136-7431-441E-BC3D-568E9068B881}">
+                <File Id="filC8C1D10C80545E52E676125D44F33DF8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_mpegvideo_plugin.dll" />
+              </Component>
+              <Component Id="cmp7EA9481FF07E99F57060F969BD6B05AF" Guid="{76C850C5-F907-4C0F-996C-680A97277A5E}">
+                <File Id="filD55D27C5F0B2856E78260A870D7CFB25" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\packetizer\libpacketizer_vc1_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir3D910E345EA551963A84249024D82440" Name="services_discovery">
+              <Component Id="cmpA3AF1D7115A6216D143CD57299C86A36" Guid="{DA9A076B-E191-424E-B59C-7D489FD81104}">
+                <File Id="fil6E0DCF3611D050132558AC625CBD95C0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libmediadirs_plugin.dll" />
+              </Component>
+              <Component Id="cmp094CF0411A54F5423B23DE2C6749F38C" Guid="{57168521-53B9-4FBB-8216-BBEDADB681D9}">
+                <File Id="filA62177E693D39FDD9E715ED35A4B80F7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libmicrodns_plugin.dll" />
+              </Component>
+              <Component Id="cmpC59D19DC169DB014EDACE91C50AE26B6" Guid="{9F5A8836-565E-486B-AF6A-7F93A1F3E361}">
+                <File Id="filCC7F24FE8AB42C21474A744C1D15507A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libpodcast_plugin.dll" />
+              </Component>
+              <Component Id="cmpF593891662C8F9A06290CF283FCA4969" Guid="{ED5DA861-F07A-4666-8381-B29FD3C38C30}">
+                <File Id="fil1A906C5BC80C4ADB8D4C9A8C1783C691" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libsap_plugin.dll" />
+              </Component>
+              <Component Id="cmpA25DDFB6552D394501F4CAEA68D10815" Guid="{ADD83342-8806-48EC-9073-BA729B6EEEC5}">
+                <File Id="filD520FCCD21CAB012707BDDF263502A4F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libupnp_plugin.dll" />
+              </Component>
+              <Component Id="cmp5732BAFA09262CBDD99E320750C56789" Guid="{9D956E94-4B99-4B2B-B31E-946149BD2865}">
+                <File Id="fil76308300155CC008F7029D93819C5238" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\services_discovery\libwindrive_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir9363F7E4DBC4BCAF905DD6EC3F88CBFB" Name="spu">
+              <Component Id="cmp8AAA0422872CFA0AC251C0A4BB2609B6" Guid="{352CCB08-BEFC-4AA9-A85B-B871A006C537}">
+                <File Id="filB8C884833FDD6EED7BFEA3A398F42D56" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\libaudiobargraph_v_plugin.dll" />
+              </Component>
+              <Component Id="cmpFD205813EF54063CE40EFCA393696494" Guid="{325CCD0D-8A3D-418C-A155-E51328ECE211}">
+                <File Id="fil981C9C49EAAA2E89B4EBFF20D116EF0D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\liblogo_plugin.dll" />
+              </Component>
+              <Component Id="cmp851BD39EF28C89A354E40F90E2440C6A" Guid="{EB2A5FE0-0450-4366-84EB-A61CBB666DC6}">
+                <File Id="fil41EF7805543AE4CE651B036B98E6B497" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\libmarq_plugin.dll" />
+              </Component>
+              <Component Id="cmp185B53FCB299121EED0023097D602835" Guid="{24D0102E-8D62-4AD8-BE67-4DB006373B3D}">
+                <File Id="filD4C029536B0E30F2C99F1ECC73F5E696" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\libmosaic_plugin.dll" />
+              </Component>
+              <Component Id="cmpF1C810E7F190DB053E5DACF31BA23603" Guid="{06E8A2A4-C2A2-48C5-800F-C1DCEBD0D6A4}">
+                <File Id="fil3BCC4C50F294FA6DFA5A33D0CF683E89" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\libremoteosd_plugin.dll" />
+              </Component>
+              <Component Id="cmpADB5BC1C86D9DE02EF487A6854C9167E" Guid="{6D88AE6F-5045-4D22-BA89-1E6B91BDA8EE}">
+                <File Id="filFB6A9FEE567C4257A9E6B175D3BC9D71" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\librss_plugin.dll" />
+              </Component>
+              <Component Id="cmp381CAA9CC9B2F8ED00F325ADB44AE888" Guid="{F43A9403-A2BA-4ED1-8D90-308649FF7E9D}">
+                <File Id="fil911C1FC8B222413E374607B6BF482AFC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\spu\libsubsdelay_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir3D150BA03F14A61E62A6F1FF6CF26B44" Name="stream_extractor">
+              <Component Id="cmpA603879FCB200314C5291A5B2F065703" Guid="{5DD47479-5014-47AA-B365-5BF278FFE982}">
+                <File Id="fil2D34783147BB3409481BD15806922DEB" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_extractor\libarchive_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirCBEA2ACAB1C414E342B82EB956937F22" Name="stream_filter">
+              <Component Id="cmp35C7801FEF426C1B35E557822C40F43F" Guid="{CDB81A89-BE8C-42AD-90D6-D244C7D3BCBD}">
+                <File Id="fil2A174C955B9D16CA6C907EA71530E0FC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libadf_plugin.dll" />
+              </Component>
+              <Component Id="cmp98A361785AD0C152BAC2DA69067B2EA8" Guid="{83131AF5-B9EA-4E53-94AF-F366688E7670}">
+                <File Id="filDFFA0DF5AEC46CAB9563BBA60A16AD5B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libaribcam_plugin.dll" />
+              </Component>
+              <Component Id="cmpFE1B2EA963282AEF51DA076B05D2C1C0" Guid="{EA2501B5-0C81-45D2-85D0-DF1A58807A21}">
+                <File Id="filE40BB71C0A7B1DEB37E5B54351A7CC3C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libcache_block_plugin.dll" />
+              </Component>
+              <Component Id="cmp8F91F7FE9F4582CDE5DBE68EA0F215E2" Guid="{B5252D5D-C41B-4A65-B47D-6406AA823BD3}">
+                <File Id="filA82153565309635A2CBEC13AB0B45745" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libcache_read_plugin.dll" />
+              </Component>
+              <Component Id="cmp4CFBF9F05FAFEEACB399A1615C5B78E4" Guid="{2D0C7E6C-5D3B-4E4B-BB1E-51453FA31F8F}">
+                <File Id="filB123DE8F0E859E4F2A30E9AF8E3D4846" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libhds_plugin.dll" />
+              </Component>
+              <Component Id="cmpA48C272F7B322BBFDC02AB764A6914F2" Guid="{C606FED2-6E13-4DB4-9978-12E9EF1DD32C}">
+                <File Id="fil28EB45598D0AD4741360ADB3F37C46B3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libinflate_plugin.dll" />
+              </Component>
+              <Component Id="cmp304313540944A4162FDBDD09B9F1A393" Guid="{DCE178FC-D5F9-4301-993D-EA515C307157}">
+                <File Id="fil22CAAE663F738D85F544AEAEAE8414DC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libprefetch_plugin.dll" />
+              </Component>
+              <Component Id="cmpC584392B2D6FD99FD9ED713478547401" Guid="{73E51373-BF55-4ED0-A6A4-53947CA0DFAA}">
+                <File Id="fil6E512A6D5AE5671CBFC4CCCE6F2FF67B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\librecord_plugin.dll" />
+              </Component>
+              <Component Id="cmp29D809106FDFB9E17E68EAB369C869F0" Guid="{18B7415F-5C6E-4CB2-9B3A-79E20A9E57D2}">
+                <File Id="fil86A0C69AA230A936CC2AE021552B9C6D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_filter\libskiptags_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir331B5360DC728002378E88D5331AD016" Name="stream_out">
+              <Component Id="cmpC64266A7F25C74E04835BD6C4EF38435" Guid="{D68FF511-75C4-451C-A187-85DA3D9E0FDC}">
+                <File Id="fil18614054EA1594E6DDFE99AD1498F8E2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_autodel_plugin.dll" />
+              </Component>
+              <Component Id="cmpD08BB9E2227BB1E387CDA78BCB2A1EB8" Guid="{A693031A-2AD0-4CEC-9CE5-50C7170A3F9D}">
+                <File Id="fil96EB9F381B7C12EB294EF96828083019" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_bridge_plugin.dll" />
+              </Component>
+              <Component Id="cmp85F7BE4BF6D9B196AFCF401259D5FE68" Guid="{434EA1E7-9A22-4BB2-AACE-A7E3B49F156F}">
+                <File Id="filDF682718A02BD417E526EFA635335655" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_chromaprint_plugin.dll" />
+              </Component>
+              <Component Id="cmp5ED34364B5B5EFF448BDB934AC7567A1" Guid="{B2B05A18-BE03-4E84-8CBC-EBDBFBCFCF01}">
+                <File Id="fil8C183B86359D3B2D89D4A36ED84043A2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_chromecast_plugin.dll" />
+              </Component>
+              <Component Id="cmp9DAE2ACFCBA1DE7AF8C89FE2E234638E" Guid="{BD75D7B9-A789-4DE0-A55C-3A50E88C9BCC}">
+                <File Id="fil0019DB2B6BCD006018A2DACF8213192A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_cycle_plugin.dll" />
+              </Component>
+              <Component Id="cmp551223A689B89A3A0CAF94F1739FB649" Guid="{8B7C0373-5FF0-4F5B-97D9-F0203D961587}">
+                <File Id="fil37E1BD20B61CBB75E2AF31C57D603A17" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_delay_plugin.dll" />
+              </Component>
+              <Component Id="cmpB75F07A20B4064DB6EA47894BA050B75" Guid="{74820D10-91EB-4040-B4F6-20531711A783}">
+                <File Id="fil7178C86CBA729C7AEE2CE7D68B54A7EE" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_description_plugin.dll" />
+              </Component>
+              <Component Id="cmp40815EA96F8D8B591F3DDA86FE2FA690" Guid="{DD50DF29-2DBC-493C-9606-4080DFC5ECEB}">
+                <File Id="fil29E1B6BA95C98FE7ABB77D1EC7117947" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_display_plugin.dll" />
+              </Component>
+              <Component Id="cmpCB6D6497608F7797B72FE385E5AC50BF" Guid="{8CAFD9C0-CF1B-4C4F-B3B0-BAEB23F8EBB0}">
+                <File Id="filD424BB0D152D2B86F013EC82DBDA658E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_dummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp4612714E91A2BF26910819A984984F3D" Guid="{08D4624E-013E-4525-8FC7-B9BBE8F186C5}">
+                <File Id="filFA07D11F67B24DE7CD754F8501AF4252" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_duplicate_plugin.dll" />
+              </Component>
+              <Component Id="cmp3606539F3A863DB316139664E8744590" Guid="{3331F918-AB63-4333-A96D-048581892888}">
+                <File Id="fil79885B9EA40830365FF239D066B3A2B4" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_es_plugin.dll" />
+              </Component>
+              <Component Id="cmp0384E1DAE45CE0FBC9CC83397F9A2500" Guid="{E02C11F3-A0F0-4D52-9AFF-4172A595A12C}">
+                <File Id="fil74508A6F0FFDEBA8A978009DE943C73E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_gather_plugin.dll" />
+              </Component>
+              <Component Id="cmpCA758E88DF0F652E852C14A4C13C65C6" Guid="{5CDCF9E8-8020-4EE8-9CC5-F532A53256EC}">
+                <File Id="fil25FDEDE032A1B92C412B36666B414727" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_mosaic_bridge_plugin.dll" />
+              </Component>
+              <Component Id="cmp45AF3B726C603BC96A49F2861AFC118F" Guid="{F6304F59-D7C1-4F04-B7E7-A886847C3ADB}">
+                <File Id="filD2C1D09886A9451078D80131CC365652" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_record_plugin.dll" />
+              </Component>
+              <Component Id="cmpF2708C29B581C1898668498A11118231" Guid="{E20EC93A-C01C-4C11-BD67-91DC4452CA88}">
+                <File Id="fil757FBB0DF7F3B1E8B170347988141966" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_rtp_plugin.dll" />
+              </Component>
+              <Component Id="cmpEE4E875BDCCE8CCA587DCAACB1FED841" Guid="{BBB04E4A-4FE3-45FA-B0D8-8CBC2A354650}">
+                <File Id="filA1A8A5156F8A03EEC8B7DA5548BB485E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_setid_plugin.dll" />
+              </Component>
+              <Component Id="cmp1A503CC87F83C188E804A40200902CF5" Guid="{4E4FDBFE-5858-4526-84C5-BD5E04A1FDF0}">
+                <File Id="fil71E168A9E962C8E887C0C134DC2440E0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_smem_plugin.dll" />
+              </Component>
+              <Component Id="cmp8E00E507A9BE88DE61A4BD954F7405F6" Guid="{704084E4-83C5-4CFA-8494-5F91DA2EA1B3}">
+                <File Id="fil8F50829CADF9C3937B23B0FFED884FC6" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_standard_plugin.dll" />
+              </Component>
+              <Component Id="cmp53BA9C62D8DFBFF455FD34849AEA6482" Guid="{25833D2A-CD60-4A7D-AA7F-80B2629150ED}">
+                <File Id="fil381905B65F45790D235A4C302F5CC7A3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_stats_plugin.dll" />
+              </Component>
+              <Component Id="cmpB515B8637E94086DAC046DB37A2E0DFB" Guid="{52CB8695-6779-4364-BBAC-493E2684BC9D}">
+                <File Id="fil889E6A8FD41E6B69A02519D11BD630EF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\stream_out\libstream_out_transcode_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir6E163ECF3E7138D2587ED8EC86FDB5D0" Name="text_renderer">
+              <Component Id="cmp8833BA45F705127DD8E2FF2178AFA036" Guid="{17C4DA9A-19E6-4A48-9C85-CB71E00C732C}">
+                <File Id="filC1062F1AFA26125E91E247F8E29136DC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\text_renderer\libfreetype_plugin.dll" />
+              </Component>
+              <Component Id="cmpB0EAA8FFDC0C24C905552A97FEC83037" Guid="{294A4F5F-851D-459B-B7FB-E6332B9D8C77}">
+                <File Id="fil94C38541871F797FFA8304D5E06F15B9" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\text_renderer\libsapi_plugin.dll" />
+              </Component>
+              <Component Id="cmpD20DDD7EAC45EC217E6849A66A87CE50" Guid="{86D39D89-C8E2-4829-9AB9-E37D37EAA6C4}">
+                <File Id="filD5ACEF9B1037ADEC3BC304CAE2ED8BA2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\text_renderer\libtdummy_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir5EA62180E7C334F4AD62CD9DC183F6B6" Name="video_chroma">
+              <Component Id="cmp4FD09F5EE1758A6791ADF9B773122A73" Guid="{A2787B20-7D9D-4815-9731-E3A62A8609C1}">
+                <File Id="fil6885FD8B0D72AE667505DDD64910877D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libchain_plugin.dll" />
+              </Component>
+              <Component Id="cmp029313C2D5BF7F2DA8739842616D1949" Guid="{0C549BD6-4F36-4829-9441-8C99A89B54ED}">
+                <File Id="filFDC04D370B5C513656D0CA69EA5D7B38" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libgrey_yuv_plugin.dll" />
+              </Component>
+              <Component Id="cmpB8E32FEA36A1865A16B291E84FB00264" Guid="{98D433F5-A09D-4F4B-830A-B0E276A1756D}">
+                <File Id="filA72ECA04F60876FA0F434921096AAB5A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_10_p010_plugin.dll" />
+              </Component>
+              <Component Id="cmp10EC2F08C3A03102DED07B7AE981F941" Guid="{A625F43E-F1BB-4155-88B1-B7EBEA84E49F}">
+                <File Id="fil691B5C8F561DDA76630F79D216F63D80" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_nv12_plugin.dll" />
+              </Component>
+              <Component Id="cmp90D997620F57D8701385154F0FFF650C" Guid="{1516FA19-F800-45A0-9932-8B1155EA0F4C}">
+                <File Id="filD60559BB096D0E8968E7533C9FCD9ED0" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_rgb_mmx_plugin.dll" />
+              </Component>
+              <Component Id="cmp0DC826AE3AFB64841886A0D355D8D3F4" Guid="{2659AD09-B019-4A8A-9E8F-4898CF7B1476}">
+                <File Id="fil5F341F1D31E5676876A618412EF46863" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_rgb_plugin.dll" />
+              </Component>
+              <Component Id="cmp0AFBEAA9F8BFC4AC746EB9C8726007FC" Guid="{69243D74-FB81-4446-9F55-0646274EFE72}">
+                <File Id="fil8BB7AA19A52721D54DF8509D222DA441" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_rgb_sse2_plugin.dll" />
+              </Component>
+              <Component Id="cmpF027B4CE957ABD6156D1FDCC4CFCD413" Guid="{908F09F8-464C-45E3-B9FD-B39012E3FCCF}">
+                <File Id="fil4DE9B9AAA91AA6406C6207930AB803EA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_yuy2_mmx_plugin.dll" />
+              </Component>
+              <Component Id="cmp0779ACBD3DE56A87D08C4F01071173ED" Guid="{05F16BEB-EDBE-4AA0-80F4-EE9802F04C9D}">
+                <File Id="fil2D80E9F9BEFDCD8F17D9584FFF1755EB" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_yuy2_plugin.dll" />
+              </Component>
+              <Component Id="cmpDBB498EEC311C3D835F7BF3787442283" Guid="{FCE0C775-0918-4690-9382-0FBF235CE756}">
+                <File Id="fil65E62F0D582FFC8314F3A46120A7374A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi420_yuy2_sse2_plugin.dll" />
+              </Component>
+              <Component Id="cmp804649A9F8BB1C5A40A835291B87D6AE" Guid="{32D56614-CB91-483D-AA66-4F19F5D39167}">
+                <File Id="fil4B489BD48B136523A3D1A4932B08B446" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi422_i420_plugin.dll" />
+              </Component>
+              <Component Id="cmpA371061E004F549F33962F445A19C3A1" Guid="{19191C5E-ED1B-418E-981F-456763964492}">
+                <File Id="fil8C48182A71CB1013A09BC76B432D7A0E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi422_yuy2_mmx_plugin.dll" />
+              </Component>
+              <Component Id="cmp0EA2BB1A06745E2FFAE8E48ECA25E79E" Guid="{B66FCA05-4D84-4B6B-ACBE-27378B442D16}">
+                <File Id="filA9493AE5917C8B0FFF4195FA1D86018D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi422_yuy2_plugin.dll" />
+              </Component>
+              <Component Id="cmp9BE3C505506A6C08288CAA1960223638" Guid="{58250851-6C4F-46F4-B947-536F81B53D3E}">
+                <File Id="filF03DF3EA4A677081E8DB02BE636718FC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libi422_yuy2_sse2_plugin.dll" />
+              </Component>
+              <Component Id="cmp6F015AE6DE72E823D455C472693258E2" Guid="{1B64496C-F855-451F-99AD-919E1AD19A2B}">
+                <File Id="fil2BFFEBF3E83F1D7929A95A492CEFF8D2" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\librv32_plugin.dll" />
+              </Component>
+              <Component Id="cmp0A1FA68EC92157EF4C4A50F3CC603AE2" Guid="{A0BDA4B7-103E-4E26-B89F-12D155C126D9}">
+                <File Id="filEBFEF543DDFB7556C862B42066D81856" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libswscale_plugin.dll" />
+              </Component>
+              <Component Id="cmpCE1309D5F5E8A9B2EECD63200F6B3122" Guid="{AB1A6848-79D3-49AE-B95C-216FDB9D15F8}">
+                <File Id="fil62140F214F9FF548DD270A839F8FD6D8" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libyuvp_plugin.dll" />
+              </Component>
+              <Component Id="cmpB1D1D57C72FB2B73B72813FE15D1578E" Guid="{1186D720-29A2-4171-AA53-E7F3F4969B45}">
+                <File Id="fil2A8056A4A4F5B9FFAE88CDCE24453FE7" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libyuy2_i420_plugin.dll" />
+              </Component>
+              <Component Id="cmpE2BE3A012483A740E6C47207F3803299" Guid="{BBCC32A2-2583-4216-A40B-C6FEF71D75B4}">
+                <File Id="fil8CE33D6320EC9DD4A35486A1FC5AE6DE" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_chroma\libyuy2_i422_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dirB82A715D7A8979B0AD5DBEE8D8F9779C" Name="video_filter">
+              <Component Id="cmp8594480F89A0ADA142F35C030DEEEA06" Guid="{D283F87C-330C-4A06-8028-6374F4E42AA4}">
+                <File Id="fil4B6FBDBD770AC354A0019D5640FC5707" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libadjust_plugin.dll" />
+              </Component>
+              <Component Id="cmp1EBDE23127884A2FABF8D06BA666DC81" Guid="{8FFFE299-6663-4829-8179-8368CE07EC2A}">
+                <File Id="filA250839334388B0AC5A9E1EA60128795" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libalphamask_plugin.dll" />
+              </Component>
+              <Component Id="cmp11F8C0F5FE908FA1E7B2E9196A6602FA" Guid="{BF382A68-C8B2-48D9-AFA2-B56FA7FBBC6F}">
+                <File Id="fil2E7E334BA85E71B7B69AF76FB3D8EFAF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libanaglyph_plugin.dll" />
+              </Component>
+              <Component Id="cmp809F70643E43769E95BE34E63FB0931C" Guid="{6FFBF187-2911-428A-95D7-CE8A044BEBA4}">
+                <File Id="filB96AAB9F0F04015E8D7C115218A047AF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libantiflicker_plugin.dll" />
+              </Component>
+              <Component Id="cmp67F4FD99D71DE2CA77665970AC36806D" Guid="{FB0D96E9-39DF-4B02-9ADA-3DCA6B7DA0E5}">
+                <File Id="fil4978C51ABAF5BD1AC73BFDE15C4FE38C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libball_plugin.dll" />
+              </Component>
+              <Component Id="cmpB7818AF2CF5CD284C3F310B196503C49" Guid="{CF7684C8-E987-42AE-824B-15D52BC16224}">
+                <File Id="fil2A2F606E8D1638D78D64F4FAE17D75CD" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libblendbench_plugin.dll" />
+              </Component>
+              <Component Id="cmp0572B93F16334572C67D35DC00038AD3" Guid="{E80BC067-FF65-4264-A628-29C579E6453C}">
+                <File Id="fil82487A3285BFD8DF384B29A6BFFDED79" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libblend_plugin.dll" />
+              </Component>
+              <Component Id="cmp1F08D8071AC9273AADB7F89DAD0F69AE" Guid="{16D7044D-2F7A-40D5-9036-1BDEAC037421}">
+                <File Id="filB927D4CE568E888216E4A9F4D868CFF4" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libbluescreen_plugin.dll" />
+              </Component>
+              <Component Id="cmpFAC1892A9CC6CA09DBD0B9F698787CAD" Guid="{DB7B8D07-7444-4BEE-AE39-EC5EC780A41C}">
+                <File Id="fil27FC0896535D301F05CE03884FE3CA8E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libcanvas_plugin.dll" />
+              </Component>
+              <Component Id="cmp8AE1893E40687422BA80874BABE9BCE1" Guid="{4E0E3AC1-21B5-4893-9490-CE61521C5B9C}">
+                <File Id="fil1C2AD5194925EDFB79BBF24C267E803C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libcolorthres_plugin.dll" />
+              </Component>
+              <Component Id="cmp72A34B086B5C1E36CBDC41BBD56D0384" Guid="{85A72122-E77F-47A1-A92E-FAA86898B0D3}">
+                <File Id="fil09C9F0894CC8BBF4453DC14B220A1645" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libcroppadd_plugin.dll" />
+              </Component>
+              <Component Id="cmp8762008DD382C6906D57DFEE2F34235C" Guid="{5452A751-1211-4463-82AE-972D111A7F74}">
+                <File Id="filDB3C889C4815C65B654B2888E87B59FA" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libdeinterlace_plugin.dll" />
+              </Component>
+              <Component Id="cmp039BDCE9C7FF1B4BC48FEEC63B45B423" Guid="{91E1A802-34A9-4B28-80D6-981E25B63E89}">
+                <File Id="fil078F639D77B1E3710C22B7AA0FE1143E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libedgedetection_plugin.dll" />
+              </Component>
+              <Component Id="cmp90C832726E495AC69F8A8C017CB48DD2" Guid="{A7515968-E279-4B39-A63A-1E009D2C2CF3}">
+                <File Id="fil2A82B07FDAC80F002D4454349EF3CA82" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\liberase_plugin.dll" />
+              </Component>
+              <Component Id="cmpE08251BFBB3298090AEBEA53B75F30D1" Guid="{9ACDD96A-F20F-49BB-9541-8E3DBDA8D286}">
+                <File Id="filFDA29175CF3AFE34C69E9866B5BE93AC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libextract_plugin.dll" />
+              </Component>
+              <Component Id="cmp6488930DDCE35FBD899EBCA851663FE3" Guid="{E7909616-5E0B-45A5-BF05-E3F4FB4B4BB8}">
+                <File Id="fil4AFF3E13042E5C9974F84E63DC45F875" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libfps_plugin.dll" />
+              </Component>
+              <Component Id="cmpD10831D507F8163750880E31F1A7D963" Guid="{F8BCF23A-6E00-4659-9A20-02681CBD8827}">
+                <File Id="fil902D9545771F23A650B5CF5C5E97D023" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libfreeze_plugin.dll" />
+              </Component>
+              <Component Id="cmp063F744513A3EE841B955AED993513E5" Guid="{32B3C096-7998-468B-98F9-1EE0E31FB2D3}">
+                <File Id="fil29BBC162C57788D072D45F2BAC1DB642" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libgaussianblur_plugin.dll" />
+              </Component>
+              <Component Id="cmp798EAAA1041BEDC79F63E609B7DE0B20" Guid="{08DEAF2F-3BAF-4FDD-8FA5-620DD4F35C7B}">
+                <File Id="fil27C19D96179144A11AE46D8E81F41E40" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libgradfun_plugin.dll" />
+              </Component>
+              <Component Id="cmpBF805FEF5678C4BCE0845893C0B47FB4" Guid="{E5001DA7-9444-42F1-BD16-0826BC5A5DCB}">
+                <File Id="fil897AC54C3B6B1FC21950EE8E2BCAE731" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libgradient_plugin.dll" />
+              </Component>
+              <Component Id="cmpE5533D5B37CBA1676F83C0400C08A21B" Guid="{E30A9D0E-BC6D-4847-B381-253CF0A1ECE7}">
+                <File Id="fil7FFF438E9834B41C884205EE6CA88F41" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libgrain_plugin.dll" />
+              </Component>
+              <Component Id="cmpDB10FE71A948C323CBF62E32AE03B368" Guid="{B1589FCC-312D-45C0-87D0-5B62041D61D0}">
+                <File Id="filBD241C943EB84E1D48D6CD6A0A959999" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libhqdn3d_plugin.dll" />
+              </Component>
+              <Component Id="cmpAB0CD6F0BA01724361F04FB355039BE1" Guid="{41FDF173-52FA-4446-AA4D-55E5EF6967C5}">
+                <File Id="fil3E8BE1A8368A05946E44851257D709CF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libinvert_plugin.dll" />
+              </Component>
+              <Component Id="cmp3F6DDAB1F337BCDCA85B80E7F1BC792F" Guid="{908049D0-C4C5-45C6-A1A4-253BF0D4F527}">
+                <File Id="filD9313A82E4E88218DAC098289FCB045F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libmagnify_plugin.dll" />
+              </Component>
+              <Component Id="cmp95B553C729647E8E09FB7356EEFE2F50" Guid="{2354A1B4-F468-4AAD-A9CF-12CE6A7303EF}">
+                <File Id="fil55CCCFF0B6DD0B45B69D498E087C693E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libmirror_plugin.dll" />
+              </Component>
+              <Component Id="cmpAA9487B5AA56773DE399E8E6F8723052" Guid="{8FF8ADCE-2848-4D77-804A-35DB6BECB96B}">
+                <File Id="fil73B3DD698DCA99EE730783313CAF34F9" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libmotionblur_plugin.dll" />
+              </Component>
+              <Component Id="cmp2F51E9D366A19B71551E0DDCA8CB21F5" Guid="{48A9B2FE-3B59-4114-B113-8BA07A3572F7}">
+                <File Id="fil22D273AECE8D19903BA096BDBCD98BDC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libmotiondetect_plugin.dll" />
+              </Component>
+              <Component Id="cmpA15A3BFD38A63D36FE2B432FD0601AE0" Guid="{62347DD0-B4FA-4DBB-A406-8FB1DAF8807D}">
+                <File Id="fil4B5E7DF2419EF94F59C01D5A4D600F20" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\liboldmovie_plugin.dll" />
+              </Component>
+              <Component Id="cmpFBEB48C5543D7C93C81BFCDC02E2A3CE" Guid="{215BFEA9-9686-431E-A321-1D6F590C09A4}">
+                <File Id="fil1672AA8D7431CD0FC770D2BC68E9C3A3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libposterize_plugin.dll" />
+              </Component>
+              <Component Id="cmp88A8E6BCA04792E501DDA74F9584197D" Guid="{583685DD-0C22-4969-8906-210E28EFD6AD}">
+                <File Id="fil9FE5758930DC9043BF5C1F162324602A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libpostproc_plugin.dll" />
+              </Component>
+              <Component Id="cmpA6AAFFD0A26717FBE292B2628E183004" Guid="{4D925072-0155-42A8-9408-320B3427D34A}">
+                <File Id="filAA8D0D820AD07764ADB9706F70261D9A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libpsychedelic_plugin.dll" />
+              </Component>
+              <Component Id="cmp643801DACBBBEADE0205E6099E0A42D6" Guid="{969FD53C-F3F9-41A3-9FCF-57273D3EE255}">
+                <File Id="fil0054FA985565B3215F1E0ACBF2590ED3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libpuzzle_plugin.dll" />
+              </Component>
+              <Component Id="cmpDE668CA861EE932B94CAEDD26D32C355" Guid="{9B82D539-F934-4C19-BB9F-59E653D10C46}">
+                <File Id="filA9BA1BC330FE9628BF9C88BB2C4DE840" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libripple_plugin.dll" />
+              </Component>
+              <Component Id="cmp791DFB2C957000437F0FAB1DD6A2063D" Guid="{8C203846-EA1C-4B68-A011-7FD19606CF56}">
+                <File Id="fil6AA3CD367CEFC0743B3E7B46E6E9B155" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\librotate_plugin.dll" />
+              </Component>
+              <Component Id="cmp7F205F05C0F56634B0C55606533D7829" Guid="{22E65AAF-E9C9-4744-B75E-71E3802276AA}">
+                <File Id="filC4713B7C7C4F133485FD8485A716A4BF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libscale_plugin.dll" />
+              </Component>
+              <Component Id="cmp5813246C1DEB574E323C9B953C57E217" Guid="{440D04F4-5E6B-4B82-A27C-BC850A0A88BC}">
+                <File Id="filBA29E7202201B3518D28A7A28D814C08" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libscene_plugin.dll" />
+              </Component>
+              <Component Id="cmpF8BC7D046A9B73AD5E81E3E3B577A8FA" Guid="{7A3BA3FF-AD87-4DA0-9A6B-9B828148021A}">
+                <File Id="filB593EE867B593C8FB557EC2F7FA19620" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libsepia_plugin.dll" />
+              </Component>
+              <Component Id="cmpB90129D8B290B6016298B822250B0F36" Guid="{B641CDC0-1B16-4861-B0D8-E17A656C2F9F}">
+                <File Id="fil9A2F0B7DD00F31765E6B09CF94BFEF3E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libsharpen_plugin.dll" />
+              </Component>
+              <Component Id="cmp54C1E834FE18BBC72CF951F3BEE2AFE2" Guid="{7152AEB0-4835-4317-94A9-6EFA1A1686AA}">
+                <File Id="filFC70283C3D06A574F708C86CD72B694B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libtransform_plugin.dll" />
+              </Component>
+              <Component Id="cmp7DDC50E1C66410C0AFCD157CCA8B3DDD" Guid="{502BBA27-F47E-4147-B189-6452AD50FF0C}">
+                <File Id="fil14D6E1DDDDAD3A691A8B1C4EA9D9C618" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libvhs_plugin.dll" />
+              </Component>
+              <Component Id="cmp013E6B5F04ACBA7D126CF8294AC5594A" Guid="{07CE119D-E42C-4E56-9619-EF117B0A41D4}">
+                <File Id="fil63F1AD46BAC2F2A3F259F90BE6F3DAAC" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_filter\libwave_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir35FE0CB7947FC99F6E6AD4B35E5A9D79" Name="video_output">
+              <Component Id="cmpC30081E9E3DD093FC9E6EC2676A94393" Guid="{EB6E973E-EAE5-4642-8BA6-B46911561EE3}">
+                <File Id="filD907B221A1C8FF7F33F242A70B13B36E" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libcaca_plugin.dll" />
+              </Component>
+              <Component Id="cmp1B1281FA0CD64339A8061CA1EF9AD19A" Guid="{F43F6C6D-BD39-439D-AC6D-F20119B4577B}">
+                <File Id="filC19789B5F56A97263D6823C51D64CC7D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libdirect3d11_plugin.dll" />
+              </Component>
+              <Component Id="cmpC8D01DAEB47D8EFF92BC68966978D8A1" Guid="{9CA7FCC5-9DA6-4CE9-AAB3-28F91A225238}">
+                <File Id="filEB7A905F7B36E39ED78C6523E5476362" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libdirect3d9_plugin.dll" />
+              </Component>
+              <Component Id="cmpAD5D1CE436F760E61CCB14AE59BD9F8A" Guid="{6525D090-7C77-42E3-A657-23B6DEB6BB22}">
+                <File Id="fil7B92DCCD37C10F23963A419511D13A7C" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libdirectdraw_plugin.dll" />
+              </Component>
+              <Component Id="cmpDBA97A309C8464128733245124C43CC0" Guid="{79090323-5673-4E7C-A9C6-FB1CD3DC9198}">
+                <File Id="fil73A0F14555F43E18BAEE2937C3CB3FD3" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libdrawable_plugin.dll" />
+              </Component>
+              <Component Id="cmpDCFC0CA6B4F209FB9BA11699C50FD6C7" Guid="{4EB52FE6-39CA-4754-988C-0374A3DD040B}">
+                <File Id="fil5F9CEBE9041B962FD90AA41E100F69B1" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libflaschen_plugin.dll" />
+              </Component>
+              <Component Id="cmp658CF6CF73804C45D801D62A9B245B97" Guid="{CF26343F-90DE-43C7-8FE6-DBA5E13E1F37}">
+                <File Id="filD9C40704D55ECCF4833A735FB6D4E72D" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libglwin32_plugin.dll" />
+              </Component>
+              <Component Id="cmp4B72EB33F16C7B5AA85B054FBDE10834" Guid="{743F8E9A-3A94-4231-82CC-2ECB96FED942}">
+                <File Id="filFCD5F1541079A534CB1D387271E015B5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libgl_plugin.dll" />
+              </Component>
+              <Component Id="cmpB561073C08FE778EF46E1DF001B40276" Guid="{5F7378A4-3D28-42C0-B10E-38AD56F2DE2E}">
+                <File Id="fil18D3A9E14EB8103515114D2EC00DF16A" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libvdummy_plugin.dll" />
+              </Component>
+              <Component Id="cmp1CF71737630E11FD7AD7DA631794DF17" Guid="{693DD2AE-E257-4658-A22F-C89702FE97C4}">
+                <File Id="filD465DD1855DBC62DE0BB828E3557D6F5" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libvmem_plugin.dll" />
+              </Component>
+              <Component Id="cmpE75A0CE8395BADC617BFF856F441A01D" Guid="{D238DBE5-899E-40B8-9D67-D8C17A7F5E41}">
+                <File Id="fil3543A3E7F0113F9A08C7333D7F73E071" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libwgl_plugin.dll" />
+              </Component>
+              <Component Id="cmp786F4AB645CEF71067C21AA00BC7C6CA" Guid="{D5686FB9-410C-4D1D-B336-ABBDC8488D1B}">
+                <File Id="filE1AFC856F23B458463E540DA55761061" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libwingdi_plugin.dll" />
+              </Component>
+              <Component Id="cmp3DECC555C42839C32321F4AD7739CAC1" Guid="{2D4654BE-986D-49B5-B473-E32B8E861D01}">
+                <File Id="fil02A7C6F25D324D0D4D7B26455AB1E070" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libwinhibit_plugin.dll" />
+              </Component>
+              <Component Id="cmpA2484631D06DDCAB8EC958A4A0DD14C5" Guid="{B5B9A82E-F6F8-49F4-8266-012C477034E9}">
+                <File Id="filE7A9A239E7BD679B7B9ED171C49AFC34" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_output\libyuv_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir4DFBFDBAB0196FFF43E60758AF63FC4E" Name="video_splitter">
+              <Component Id="cmp19B3933323B920E15C66E92542D601C1" Guid="{B24DB30E-35F2-4D1B-9D00-9BEB2CDD42E1}">
+                <File Id="filA57C233B6B63C450D1B27738A0D86C9B" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_splitter\libclone_plugin.dll" />
+              </Component>
+              <Component Id="cmp50335DB2E304594EE3BDC8CA4D163577" Guid="{0F8927C5-7E07-4BC2-B46F-C2385C375E40}">
+                <File Id="fil06D70976903B4E5479C6ACB36FF88BEF" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_splitter\libpanoramix_plugin.dll" />
+              </Component>
+              <Component Id="cmp50598B0EB2A7A65B3361C039AC6583C4" Guid="{FD3812A9-C10D-4D37-A06A-DB40AAD7D92D}">
+                <File Id="filC4EDC9E642914C6B49668628909E6BD1" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\video_splitter\libwall_plugin.dll" />
+              </Component>
+            </Directory>
+            <Directory Id="dir50768B38F139AE756663185F047E2933" Name="visualization">
+              <Component Id="cmpBF347F062AB977C287996E89D48CD68E" Guid="{74D99E83-F01D-4B0E-8122-649E55100908}">
+                <File Id="fil6BA40B871CBA0F0248FBC55964208775" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\visualization\libglspectrum_plugin.dll" />
+              </Component>
+              <Component Id="cmpFA97E91F485F05040769658B2C908934" Guid="{67E38F4F-0012-483E-B80C-AE003367CAF8}">
+                <File Id="filEB43A57FB81C4A186A49C862397B1188" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\visualization\libgoom_plugin.dll" />
+              </Component>
+              <Component Id="cmp5A8B10FDFD501943730C52CE20F10990" Guid="{488165CF-7472-4789-A941-0686166D3A4A}">
+                <File Id="filC5CE9B9973F6AD52DB197C54B95D769F" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\visualization\libprojectm_plugin.dll" />
+              </Component>
+              <Component Id="cmp470B33C5C685B3C8212B701739DA66F0" Guid="{4B172A31-6326-49A7-9000-236C2A9E2C5F}">
+                <File Id="fil2A77AD319AE5F8132914CD7E64D36E73" KeyPath="yes" Source="$(var.Multi-track-mkv-player.TargetDir)\libvlc\plugins\visualization\libvisual_plugin.dll" />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </DirectoryRef>
+  </Fragment>
+  <Fragment>
+      <ComponentGroup Id="Components">
+        <ComponentRef Id="cmpE496F7B1B020A900B37D986D739A99ED" />
+        <ComponentRef Id="cmpBFF0EF3AD265E031023E77F9391447D1" />
+        <ComponentRef Id="cmp6131918BB6BE422AFA0969687F3B7F45" />
+        <ComponentRef Id="cmpED54EAE9850957BD4116421341E2F29C" />
+        <ComponentRef Id="cmp0106CEFAB10522060DAF19A846F6487A" />
+        <ComponentRef Id="cmp66DBAF0127EDD0946ECB5D554BCA79D3" />
+        <ComponentRef Id="cmp03CC844FA31D0476DEF07BE03EE3B39C" />
+        <ComponentRef Id="cmp25317C643BDE37B8FDAA5A1653CF3498" />
+        <ComponentRef Id="cmp44D8DDB4E979AEDC672ECF400BB5BA12" />
+        <ComponentRef Id="cmpB03B0A2DEF1E7275297F8FF38B1370B8" />
+        <ComponentRef Id="cmp0BE816B4D1E82F41B9B39B13F1121650" />
+        <ComponentRef Id="cmp47DF3A9E103214C476F28C34B72CDE63" />
+        <ComponentRef Id="cmp577625DEF3D960035DEA4225119F5C90" />
+        <ComponentRef Id="cmp1292E2793C00F2147014ADCECEB71E30" />
+        <ComponentRef Id="cmp3D7CE47B9D877EF0EB09097AC15B17FE" />
+        <ComponentRef Id="cmp78FA5E1236A09C2C50EAAF8FB4D0EEAE" />
+        <ComponentRef Id="cmpF7F6CEA00DAE32797747DF64C3B39F36" />
+        <ComponentRef Id="cmpD689C6610A44E601BA7E26B1A2A75B86" />
+        <ComponentRef Id="cmpA0BE1BC5B91FA39D4932410BB5A94ED4" />
+        <ComponentRef Id="cmpCE30D572EEFB1CFB9E1107D95AF1AB4E" />
+        <ComponentRef Id="cmp8F9DD173E0EFF2FDF2B5CCA180437D82" />
+        <ComponentRef Id="cmpD2D8F62F23E05F3DBEC1A077EC7EB265" />
+        <ComponentRef Id="cmp3752B9A3A09642E7C3D64B03C4C046E3" />
+        <ComponentRef Id="cmp048BB499772E74BA58A7357BEAAD8706" />
+        <ComponentRef Id="cmp4B1DA1D0F6AA3F3AB0DE91A9D8A5190F" />
+        <ComponentRef Id="cmp93A894D2AF137A93FD473F689C94FA3B" />
+        <ComponentRef Id="cmp369B0475AB242E4A8299F23DDC40B60E" />
+        <ComponentRef Id="cmp02ABAB09623BD432CC938045558C9937" />
+        <ComponentRef Id="cmp710B48150B1D4CAA62600638ED0B033B" />
+        <ComponentRef Id="cmp717120F159B63CA3505F00885A0D81A6" />
+        <ComponentRef Id="cmpCAA058F9796E5ED3740896522458A6B6" />
+        <ComponentRef Id="cmp23B2F6719CA0627B833A0F0EC24B5A47" />
+        <ComponentRef Id="cmp779CB3E0738C647D64DF58AC9B810100" />
+        <ComponentRef Id="cmp1A8DFE7E5DFE6057F26BEB8A3F274999" />
+        <ComponentRef Id="cmpDA7BB2B648DE443F374B4EDD26912B77" />
+        <ComponentRef Id="cmp0E9F4BB4549AA0635A893A1DA0E13DDD" />
+        <ComponentRef Id="cmpD984B3FDA9099F9D48A90E4A17DE5A0F" />
+        <ComponentRef Id="cmp2859E1C8CAAE57E7F4886CC58ED38807" />
+        <ComponentRef Id="cmpA1B5682DD64D45409A099F788C9167F9" />
+        <ComponentRef Id="cmp0C5EC1D72299D22F5B659301918BB703" />
+        <ComponentRef Id="cmp8B40B2B5764CF3B362098A6175567AAF" />
+        <ComponentRef Id="cmp7B5D78402C0A7B8998473611D5A285FF" />
+        <ComponentRef Id="cmpFDA0CA640F917920E8034382E447DE47" />
+        <ComponentRef Id="cmpECE1950EBC29BDC32F23F86756E4546C" />
+        <ComponentRef Id="cmp759BA25A6D35366DD93DFEAC74312A35" />
+        <ComponentRef Id="cmp3D95516A7460F9790FA606D2AC511160" />
+        <ComponentRef Id="cmp17DFD4C038E542C295683F371EA49DB7" />
+        <ComponentRef Id="cmpE819A0F049D25A6F0D700342BC58625C" />
+        <ComponentRef Id="cmpEF24B2FF8EF66482AE365931EBD76FB7" />
+        <ComponentRef Id="cmp54443B0284CDF925C924E4482A7CCA81" />
+        <ComponentRef Id="cmp070520A914AE87B01D811E6EC273DDF3" />
+        <ComponentRef Id="cmpCBD77DCB0394E22245ABD56EF9F54BFF" />
+        <ComponentRef Id="cmp54BDF57443CDE4326BE8CBF9922734BE" />
+        <ComponentRef Id="cmp469312DF8F1CB7D2582A0D2B0DC04B06" />
+        <ComponentRef Id="cmp9BC5ACBE4139BB0A13B67E4D04BC8721" />
+        <ComponentRef Id="cmp83FCA5875AACAB3ED2BFE7EA99754AA1" />
+        <ComponentRef Id="cmp4403DA17ED170B986ECDFF51F14BECF0" />
+        <ComponentRef Id="cmp738752963682614AB024CC6917AC4D40" />
+        <ComponentRef Id="cmpE0BD63796BABA5B05207DAF6BC18B6F5" />
+        <ComponentRef Id="cmp508FD9C5CB2B21D2622E390E63058FDF" />
+        <ComponentRef Id="cmp60354E7D07F5D96F0784491ED50E9DD0" />
+        <ComponentRef Id="cmpB25C9B3D472442E71C0524962BA6E6DA" />
+        <ComponentRef Id="cmp7A8B3C76D396C28CBCDB457E06918561" />
+        <ComponentRef Id="cmp822A3D71FFC7A2878201527E46E7090C" />
+        <ComponentRef Id="cmp6EC1F05B7879A6D58545874CAC08661A" />
+        <ComponentRef Id="cmp077E98EA46300A65C5D93215CB03C213" />
+        <ComponentRef Id="cmp6AE5A9307F7D9A26CF669ED7A43F2089" />
+        <ComponentRef Id="cmp21EACE18C53F1992EA0828EC3C8E343C" />
+        <ComponentRef Id="cmp3C04CC3CED46A7AB39E84BB17036A8F1" />
+        <ComponentRef Id="cmp6D2C72C7F30D1DF60A0965A9C32C56C1" />
+        <ComponentRef Id="cmpFCFA89BBE9EBCE4F44C62101D34832D6" />
+        <ComponentRef Id="cmpA33DA4BCBFC468160421EC401DD926AD" />
+        <ComponentRef Id="cmpA8C1FBF6A243FC7277864340A69BB45C" />
+        <ComponentRef Id="cmpFC4DCD760CACA0EFB54E14C02DADD260" />
+        <ComponentRef Id="cmpA9EEB074BD5CB2D0ED7C751F6822D7A6" />
+        <ComponentRef Id="cmpD0A569C95673E0227680B5EA1891512E" />
+        <ComponentRef Id="cmpD835C6BC7322368769E6999E389C4512" />
+        <ComponentRef Id="cmp211E838BEC1679F2A769CC2014583189" />
+        <ComponentRef Id="cmp548753E616A2879B3ADD5D05395E5654" />
+        <ComponentRef Id="cmpA3037156817104117FFACFB0EA9CFE29" />
+        <ComponentRef Id="cmpB9D4EF3824974C63FE4C506A8B918A54" />
+        <ComponentRef Id="cmp3F7ECB8CF1695B28B0B8A5C54B4CBABC" />
+        <ComponentRef Id="cmp92AAB4037ECEC8DC2FA8D5E174030E0E" />
+        <ComponentRef Id="cmpD7DE683EAB2E04A147603D92550145FF" />
+        <ComponentRef Id="cmp9BE278706BE2A2D30B21487F1F8EBA0E" />
+        <ComponentRef Id="cmp2D554DFB2105D5E6DD36A01640D6944D" />
+        <ComponentRef Id="cmp9818CC4329EB327C75BA10235AA4A50D" />
+        <ComponentRef Id="cmpED2C527909AD93649A18AF4A20E17051" />
+        <ComponentRef Id="cmpEF50A3D45DF75E43316BF83EC1C2BC80" />
+        <ComponentRef Id="cmp0FD581A31111B2020698441A9786D2B1" />
+        <ComponentRef Id="cmpB366278C8EA496662E6001F9B43EEC46" />
+        <ComponentRef Id="cmp9360B99685ED96A760C62B582C409E02" />
+        <ComponentRef Id="cmp7E406BF0BDEA5C0A12517B8672D6B10F" />
+        <ComponentRef Id="cmpA5DB47BA3CEABC61DAF21C469516E997" />
+        <ComponentRef Id="cmpDD3EC15759FC20D860946BDB22319CCF" />
+        <ComponentRef Id="cmpD132E7649782365B7A031A27CC6E9F31" />
+        <ComponentRef Id="cmpC398DACDFAC0655A422E68FAD6401938" />
+        <ComponentRef Id="cmpE0CC3A7B46C39062E648C4677A5CD54A" />
+        <ComponentRef Id="cmp97BEA422608CC65B6803B01388B3F99D" />
+        <ComponentRef Id="cmp5E1C2960C467C22B50658B92043DEECD" />
+        <ComponentRef Id="cmpDC332D7B5D30CD77A96E4782BD59FF36" />
+        <ComponentRef Id="cmp9E559F8BF811C733EA0B4CFB951DB964" />
+        <ComponentRef Id="cmp65DC83BA74202E7568FCDBB482484583" />
+        <ComponentRef Id="cmpB62864FD20050B769DCBCE95688C5053" />
+        <ComponentRef Id="cmp267CA9A2BF9239107304264F436208BC" />
+        <ComponentRef Id="cmp544E90B875A73D1FF94FB7144B6B7C2B" />
+        <ComponentRef Id="cmp0D867FF46045C655DE3CC4B6991A881D" />
+        <ComponentRef Id="cmp2D0E243603B69A1D27431B009A2632DD" />
+        <ComponentRef Id="cmpC99169A3A25384260B31394439A74418" />
+        <ComponentRef Id="cmp964CB6F82EDACAA13D8DAE7DC5B4A10D" />
+        <ComponentRef Id="cmp421AD2F5E044EC43DAFB42090CD753A6" />
+        <ComponentRef Id="cmp0F056DEC74AF40F915BEC8EF286D8BF0" />
+        <ComponentRef Id="cmp45452B8606893549A0DFA61656DD694A" />
+        <ComponentRef Id="cmpAB193E0395920E7B1B654EFCC72885DB" />
+        <ComponentRef Id="cmp8EACDA662BAA618FDF03397829979F36" />
+        <ComponentRef Id="cmp6B4F65A964F26442AC2B059E7ED31608" />
+        <ComponentRef Id="cmp9C4A3AA9E762E403D47D8D5231B4B495" />
+        <ComponentRef Id="cmpB0C97FFDFEDD5E7A90F8DC38973FD7E3" />
+        <ComponentRef Id="cmpBA532413E4339FFF93FE76E2963D9FFA" />
+        <ComponentRef Id="cmp93184ABF20F603F99CB66EDABE40E82E" />
+        <ComponentRef Id="cmp1FDE3B259BC4ACCB54941C32E170C129" />
+        <ComponentRef Id="cmp56CEFF26A0A978F9C6C46092EF2E24BD" />
+        <ComponentRef Id="cmpF10BEC0B6F04B637BF1D41386FE3A4D0" />
+        <ComponentRef Id="cmpE68E42C73B6F2F1F11DD774CE84C880B" />
+        <ComponentRef Id="cmpB2F097EAD1E04BB1F28ECB2D847DB3AD" />
+        <ComponentRef Id="cmpAD52C982386E9EBF43EBE5093C82A713" />
+        <ComponentRef Id="cmp7A647DD4C8D05454C1AADC477E0BE2F3" />
+        <ComponentRef Id="cmp1F340EDA3705A12C91708E6F1C2E6646" />
+        <ComponentRef Id="cmp223A28B64AFC0C5511D36E6BB1064A24" />
+        <ComponentRef Id="cmpEA880B3A86B575D922DF3DD16FEF10BD" />
+        <ComponentRef Id="cmp73245CEFE0C46703014D347931173F8B" />
+        <ComponentRef Id="cmp441493996F63F453738D9E553DBE2976" />
+        <ComponentRef Id="cmp87A0122CAA77C5B057C5BE30CE593890" />
+        <ComponentRef Id="cmpE1A28E6E977E23273C2C0EDD52744E68" />
+        <ComponentRef Id="cmpE55D40B32737C7F48BF5F2C7161729F1" />
+        <ComponentRef Id="cmpA6CB6A17D044AC4D2C39CB5B92D65F1D" />
+        <ComponentRef Id="cmp705B38FF5445032C7A2B681E48444AD7" />
+        <ComponentRef Id="cmp09544AB7667F2BBF0852148DCA5C3A90" />
+        <ComponentRef Id="cmpE351B52B8E2076C028F0C63AC79A8B38" />
+        <ComponentRef Id="cmp25E6B90ACB9727DACD8C339620BBBACC" />
+        <ComponentRef Id="cmp07F0F2D3F656954FEEDD7881A49B79CD" />
+        <ComponentRef Id="cmp7494CBCC9DEB02B88382FD5455AD7591" />
+        <ComponentRef Id="cmpD18E80AD2AAFE0F349ACAF1A50D6A762" />
+        <ComponentRef Id="cmp2AE0EA2A0D73546E9BE3807A651FF39F" />
+        <ComponentRef Id="cmpB80B1AB52449FA2E3593196B2DB35D16" />
+        <ComponentRef Id="cmpAD8545DC98E906DCB12526C32CA99F66" />
+        <ComponentRef Id="cmp5145C574F9C4D0E2668241EE7CCC9E89" />
+        <ComponentRef Id="cmp3F2FC3DBC070A303A1C8696BD1156C4F" />
+        <ComponentRef Id="cmp0E41536BF81628E821ED291AFBEC857D" />
+        <ComponentRef Id="cmp89B5BC3DD6A0A0FE87C01C449ED44468" />
+        <ComponentRef Id="cmpE56929B8E0356021E30EC22F6BD8BF6B" />
+        <ComponentRef Id="cmp2B5E94F8815772DFED78DBA630CD79FA" />
+        <ComponentRef Id="cmp10E3D9274C662CAFB68B87E42922005A" />
+        <ComponentRef Id="cmp2AB49715C94F8DA656915758E70E2434" />
+        <ComponentRef Id="cmp4B7773FECEF03154261C2D7B88033D9E" />
+        <ComponentRef Id="cmpD5F63DDC1CB1AA97498FDB30F1047DDE" />
+        <ComponentRef Id="cmp7CCFC696584B028A30B66675AF6E23E1" />
+        <ComponentRef Id="cmpD7D1461AD71CBAD933CE071F7EBD24BE" />
+        <ComponentRef Id="cmp4557DB3791F45B4D9CBF12D6885E8389" />
+        <ComponentRef Id="cmp6BC882FE2FBFD028054F3A7A6C854D7E" />
+        <ComponentRef Id="cmp97F48BDA3E55D330BBD2EF6208A8FACA" />
+        <ComponentRef Id="cmpFD92EA710897B8C853AFF78527992CE6" />
+        <ComponentRef Id="cmp504C6FD276C83A40AFBF55E88ADC4703" />
+        <ComponentRef Id="cmpD758002F692E94ED0FDA49EEAF578339" />
+        <ComponentRef Id="cmp470DBD9CA16C4C17444176F36D851E11" />
+        <ComponentRef Id="cmp820D12B0797A47C1D539B4996AC327D5" />
+        <ComponentRef Id="cmp2811809B4C9A0DB2ED18ED43D0D3F5AE" />
+        <ComponentRef Id="cmpBE7617A0A5CFDF65072DD2D20B533A55" />
+        <ComponentRef Id="cmp20AA12938275FF89B2F37E6F4BC6E0BA" />
+        <ComponentRef Id="cmp1D59BF18B64AD7F7645CF4E768B1A70C" />
+        <ComponentRef Id="cmp600F8DF1AC16B23835EA9FC166EDA277" />
+        <ComponentRef Id="cmp5116FFE46EFEC6ED0D47E01A3D46870D" />
+        <ComponentRef Id="cmpA1D56AFBCEA273C895A709E509011025" />
+        <ComponentRef Id="cmp0F0FF6F3664212023DD122552FF7244D" />
+        <ComponentRef Id="cmpD038CED05DE28EE211677ECAF9B6ED68" />
+        <ComponentRef Id="cmpE85FCB99390C7F38861260162E77AC71" />
+        <ComponentRef Id="cmp2769EB07311D81412BC5140A5BAE5890" />
+        <ComponentRef Id="cmp3C5837C9B5B4F5C4197F071FFDE86D02" />
+        <ComponentRef Id="cmp77F55A424D287D3DC65BD628D57FC77C" />
+        <ComponentRef Id="cmp2785E0F14303C28BBA42563E0BAC1905" />
+        <ComponentRef Id="cmp51ED24A4BBFBB040635F5A1F959BA8A9" />
+        <ComponentRef Id="cmpDC7863012B455A2369D96905611F6B2F" />
+        <ComponentRef Id="cmp872396F58B6AD33F848F74F8A684BE58" />
+        <ComponentRef Id="cmpD2A06715FA96E0C0EBD0F261946D7F80" />
+        <ComponentRef Id="cmpA64CFC8457CE56BDA7566494636CD821" />
+        <ComponentRef Id="cmpEF63DFDD37B6323B238AC947E87385B6" />
+        <ComponentRef Id="cmp066F978F35C9DB7D2510F6ECD7307AC9" />
+        <ComponentRef Id="cmp3876EFC2499C947050CDD55C95ECA92B" />
+        <ComponentRef Id="cmpCFE8BBE0925F4B7FEB8F2BE6555BA6C4" />
+        <ComponentRef Id="cmp2E54ACEEFEC68A0057D40DD9322F26A8" />
+        <ComponentRef Id="cmp8DDCDF1629CDCBF1B16423EE3AF0BBE0" />
+        <ComponentRef Id="cmpAD6EB1555A56BCBA2FD3316FA9C4C4AC" />
+        <ComponentRef Id="cmpA565BBE666E811452D3D512A67890B08" />
+        <ComponentRef Id="cmpEE2675B1DE1A2D68E04EF9F451077B9A" />
+        <ComponentRef Id="cmpFB4F6BD31080BAE05B19FAE0EFD24F12" />
+        <ComponentRef Id="cmp5CD422D1C8BE5A8AA4E786BF6B23542F" />
+        <ComponentRef Id="cmp3D29974666C9F92F5B4E8D44A3D74E2F" />
+        <ComponentRef Id="cmp6CA39F5D7ECBC43ECA29A426E1FD2DAD" />
+        <ComponentRef Id="cmpFB4A296CC506673422A4741EC8147DC7" />
+        <ComponentRef Id="cmp3A45E26709F9045C2E9E9793756D0679" />
+        <ComponentRef Id="cmp575C78DAD85E165F3427EFE0AD8FBED3" />
+        <ComponentRef Id="cmp02E18B6CE9C394294DB8E52B2682A943" />
+        <ComponentRef Id="cmp92854631BFB94088EC72054306D04B91" />
+        <ComponentRef Id="cmp795F741D404FA2A4ABAB9821A18477B3" />
+        <ComponentRef Id="cmp6CB097167335C9FB060E56F710A4CDFB" />
+        <ComponentRef Id="cmpD9F2D3800E730B5F8E694323152BC29D" />
+        <ComponentRef Id="cmp07EF137D3551FCF0594DB3CC161A0802" />
+        <ComponentRef Id="cmp55F8C81A05A127C5276B7CA630A8BB29" />
+        <ComponentRef Id="cmp996B95B4A687DA8FD86FE8777F301DD2" />
+        <ComponentRef Id="cmp5FD137B92067D99FCB92F0AEB9B6D640" />
+        <ComponentRef Id="cmp69D31A1ACEAE2EE84BD1AD99E39C6F86" />
+        <ComponentRef Id="cmpF4931195782B2CFEB4DC049CD4716880" />
+        <ComponentRef Id="cmp102421D322DE251120544274030DFC95" />
+        <ComponentRef Id="cmpA7AC2851DC6E076D296E07F534D5EC90" />
+        <ComponentRef Id="cmp6AF6355E99CDB31175327BA626492D85" />
+        <ComponentRef Id="cmp2CEBFA24041FD511F62DB1C87DFF296E" />
+        <ComponentRef Id="cmp8B132B5CABA2F4F89554AF18FCA0CA02" />
+        <ComponentRef Id="cmp358302A218848978DBAC25993CEFBD9A" />
+        <ComponentRef Id="cmp18529BBB21D48E99CF60B7CF4845AA01" />
+        <ComponentRef Id="cmp5D30C27C42C339B2A2C7DDDC7FACA8C7" />
+        <ComponentRef Id="cmpCF9C6C1F3D4DCBCAACCFC51FF7480CF3" />
+        <ComponentRef Id="cmp6A175CC80B00A2647A8A9564A37A14C6" />
+        <ComponentRef Id="cmp6A1B0D9DFC73F49D78EB97A5A625F0BF" />
+        <ComponentRef Id="cmpA7BA7A25612FE65BDB260737A4CE84FE" />
+        <ComponentRef Id="cmpC6B92D4006744830D52E047D7D1075B0" />
+        <ComponentRef Id="cmp79EC501F659632EA8961D3F539B43EB3" />
+        <ComponentRef Id="cmp60DEBA06291BDBB82EB9446F91137D5E" />
+        <ComponentRef Id="cmp965FEF921F2B07EC720830CD0C9C129F" />
+        <ComponentRef Id="cmp322BAC5E416BCDC0C378AF82487BA0BC" />
+        <ComponentRef Id="cmpB5D1228E8B019DEC9331F76BA6A2EC7B" />
+        <ComponentRef Id="cmp27F936984807F14864DC0AB6B2D29538" />
+        <ComponentRef Id="cmp625F486AD7C9368DBA9BB6FEBD893A44" />
+        <ComponentRef Id="cmp3A39467292D393E5035ECE651A163630" />
+        <ComponentRef Id="cmp0F94B5A65229BE6C42A888D4BCA73ED5" />
+        <ComponentRef Id="cmp943DD7620C83FE5C97614DDE45AEA803" />
+        <ComponentRef Id="cmpDB7107F5A1155CBD674B59976E63DE40" />
+        <ComponentRef Id="cmpB582B5C809556799A42CE16AF51243C5" />
+        <ComponentRef Id="cmp3271F950810CEEB280EFCCFB92B76705" />
+        <ComponentRef Id="cmp2CD090D4C7BF769DB3FD46EC1974B24B" />
+        <ComponentRef Id="cmpD7F4D5A4B1B81B3984FED4659E556436" />
+        <ComponentRef Id="cmp3FFF901F0679B7E551E39A79AB47E702" />
+        <ComponentRef Id="cmp5DBC4654C42B950838AAB6C28DD993EF" />
+        <ComponentRef Id="cmp7EA9481FF07E99F57060F969BD6B05AF" />
+        <ComponentRef Id="cmpA3AF1D7115A6216D143CD57299C86A36" />
+        <ComponentRef Id="cmp094CF0411A54F5423B23DE2C6749F38C" />
+        <ComponentRef Id="cmpC59D19DC169DB014EDACE91C50AE26B6" />
+        <ComponentRef Id="cmpF593891662C8F9A06290CF283FCA4969" />
+        <ComponentRef Id="cmpA25DDFB6552D394501F4CAEA68D10815" />
+        <ComponentRef Id="cmp5732BAFA09262CBDD99E320750C56789" />
+        <ComponentRef Id="cmp8AAA0422872CFA0AC251C0A4BB2609B6" />
+        <ComponentRef Id="cmpFD205813EF54063CE40EFCA393696494" />
+        <ComponentRef Id="cmp851BD39EF28C89A354E40F90E2440C6A" />
+        <ComponentRef Id="cmp185B53FCB299121EED0023097D602835" />
+        <ComponentRef Id="cmpF1C810E7F190DB053E5DACF31BA23603" />
+        <ComponentRef Id="cmpADB5BC1C86D9DE02EF487A6854C9167E" />
+        <ComponentRef Id="cmp381CAA9CC9B2F8ED00F325ADB44AE888" />
+        <ComponentRef Id="cmpA603879FCB200314C5291A5B2F065703" />
+        <ComponentRef Id="cmp35C7801FEF426C1B35E557822C40F43F" />
+        <ComponentRef Id="cmp98A361785AD0C152BAC2DA69067B2EA8" />
+        <ComponentRef Id="cmpFE1B2EA963282AEF51DA076B05D2C1C0" />
+        <ComponentRef Id="cmp8F91F7FE9F4582CDE5DBE68EA0F215E2" />
+        <ComponentRef Id="cmp4CFBF9F05FAFEEACB399A1615C5B78E4" />
+        <ComponentRef Id="cmpA48C272F7B322BBFDC02AB764A6914F2" />
+        <ComponentRef Id="cmp304313540944A4162FDBDD09B9F1A393" />
+        <ComponentRef Id="cmpC584392B2D6FD99FD9ED713478547401" />
+        <ComponentRef Id="cmp29D809106FDFB9E17E68EAB369C869F0" />
+        <ComponentRef Id="cmpC64266A7F25C74E04835BD6C4EF38435" />
+        <ComponentRef Id="cmpD08BB9E2227BB1E387CDA78BCB2A1EB8" />
+        <ComponentRef Id="cmp85F7BE4BF6D9B196AFCF401259D5FE68" />
+        <ComponentRef Id="cmp5ED34364B5B5EFF448BDB934AC7567A1" />
+        <ComponentRef Id="cmp9DAE2ACFCBA1DE7AF8C89FE2E234638E" />
+        <ComponentRef Id="cmp551223A689B89A3A0CAF94F1739FB649" />
+        <ComponentRef Id="cmpB75F07A20B4064DB6EA47894BA050B75" />
+        <ComponentRef Id="cmp40815EA96F8D8B591F3DDA86FE2FA690" />
+        <ComponentRef Id="cmpCB6D6497608F7797B72FE385E5AC50BF" />
+        <ComponentRef Id="cmp4612714E91A2BF26910819A984984F3D" />
+        <ComponentRef Id="cmp3606539F3A863DB316139664E8744590" />
+        <ComponentRef Id="cmp0384E1DAE45CE0FBC9CC83397F9A2500" />
+        <ComponentRef Id="cmpCA758E88DF0F652E852C14A4C13C65C6" />
+        <ComponentRef Id="cmp45AF3B726C603BC96A49F2861AFC118F" />
+        <ComponentRef Id="cmpF2708C29B581C1898668498A11118231" />
+        <ComponentRef Id="cmpEE4E875BDCCE8CCA587DCAACB1FED841" />
+        <ComponentRef Id="cmp1A503CC87F83C188E804A40200902CF5" />
+        <ComponentRef Id="cmp8E00E507A9BE88DE61A4BD954F7405F6" />
+        <ComponentRef Id="cmp53BA9C62D8DFBFF455FD34849AEA6482" />
+        <ComponentRef Id="cmpB515B8637E94086DAC046DB37A2E0DFB" />
+        <ComponentRef Id="cmp8833BA45F705127DD8E2FF2178AFA036" />
+        <ComponentRef Id="cmpB0EAA8FFDC0C24C905552A97FEC83037" />
+        <ComponentRef Id="cmpD20DDD7EAC45EC217E6849A66A87CE50" />
+        <ComponentRef Id="cmp4FD09F5EE1758A6791ADF9B773122A73" />
+        <ComponentRef Id="cmp029313C2D5BF7F2DA8739842616D1949" />
+        <ComponentRef Id="cmpB8E32FEA36A1865A16B291E84FB00264" />
+        <ComponentRef Id="cmp10EC2F08C3A03102DED07B7AE981F941" />
+        <ComponentRef Id="cmp90D997620F57D8701385154F0FFF650C" />
+        <ComponentRef Id="cmp0DC826AE3AFB64841886A0D355D8D3F4" />
+        <ComponentRef Id="cmp0AFBEAA9F8BFC4AC746EB9C8726007FC" />
+        <ComponentRef Id="cmpF027B4CE957ABD6156D1FDCC4CFCD413" />
+        <ComponentRef Id="cmp0779ACBD3DE56A87D08C4F01071173ED" />
+        <ComponentRef Id="cmpDBB498EEC311C3D835F7BF3787442283" />
+        <ComponentRef Id="cmp804649A9F8BB1C5A40A835291B87D6AE" />
+        <ComponentRef Id="cmpA371061E004F549F33962F445A19C3A1" />
+        <ComponentRef Id="cmp0EA2BB1A06745E2FFAE8E48ECA25E79E" />
+        <ComponentRef Id="cmp9BE3C505506A6C08288CAA1960223638" />
+        <ComponentRef Id="cmp6F015AE6DE72E823D455C472693258E2" />
+        <ComponentRef Id="cmp0A1FA68EC92157EF4C4A50F3CC603AE2" />
+        <ComponentRef Id="cmpCE1309D5F5E8A9B2EECD63200F6B3122" />
+        <ComponentRef Id="cmpB1D1D57C72FB2B73B72813FE15D1578E" />
+        <ComponentRef Id="cmpE2BE3A012483A740E6C47207F3803299" />
+        <ComponentRef Id="cmp8594480F89A0ADA142F35C030DEEEA06" />
+        <ComponentRef Id="cmp1EBDE23127884A2FABF8D06BA666DC81" />
+        <ComponentRef Id="cmp11F8C0F5FE908FA1E7B2E9196A6602FA" />
+        <ComponentRef Id="cmp809F70643E43769E95BE34E63FB0931C" />
+        <ComponentRef Id="cmp67F4FD99D71DE2CA77665970AC36806D" />
+        <ComponentRef Id="cmpB7818AF2CF5CD284C3F310B196503C49" />
+        <ComponentRef Id="cmp0572B93F16334572C67D35DC00038AD3" />
+        <ComponentRef Id="cmp1F08D8071AC9273AADB7F89DAD0F69AE" />
+        <ComponentRef Id="cmpFAC1892A9CC6CA09DBD0B9F698787CAD" />
+        <ComponentRef Id="cmp8AE1893E40687422BA80874BABE9BCE1" />
+        <ComponentRef Id="cmp72A34B086B5C1E36CBDC41BBD56D0384" />
+        <ComponentRef Id="cmp8762008DD382C6906D57DFEE2F34235C" />
+        <ComponentRef Id="cmp039BDCE9C7FF1B4BC48FEEC63B45B423" />
+        <ComponentRef Id="cmp90C832726E495AC69F8A8C017CB48DD2" />
+        <ComponentRef Id="cmpE08251BFBB3298090AEBEA53B75F30D1" />
+        <ComponentRef Id="cmp6488930DDCE35FBD899EBCA851663FE3" />
+        <ComponentRef Id="cmpD10831D507F8163750880E31F1A7D963" />
+        <ComponentRef Id="cmp063F744513A3EE841B955AED993513E5" />
+        <ComponentRef Id="cmp798EAAA1041BEDC79F63E609B7DE0B20" />
+        <ComponentRef Id="cmpBF805FEF5678C4BCE0845893C0B47FB4" />
+        <ComponentRef Id="cmpE5533D5B37CBA1676F83C0400C08A21B" />
+        <ComponentRef Id="cmpDB10FE71A948C323CBF62E32AE03B368" />
+        <ComponentRef Id="cmpAB0CD6F0BA01724361F04FB355039BE1" />
+        <ComponentRef Id="cmp3F6DDAB1F337BCDCA85B80E7F1BC792F" />
+        <ComponentRef Id="cmp95B553C729647E8E09FB7356EEFE2F50" />
+        <ComponentRef Id="cmpAA9487B5AA56773DE399E8E6F8723052" />
+        <ComponentRef Id="cmp2F51E9D366A19B71551E0DDCA8CB21F5" />
+        <ComponentRef Id="cmpA15A3BFD38A63D36FE2B432FD0601AE0" />
+        <ComponentRef Id="cmpFBEB48C5543D7C93C81BFCDC02E2A3CE" />
+        <ComponentRef Id="cmp88A8E6BCA04792E501DDA74F9584197D" />
+        <ComponentRef Id="cmpA6AAFFD0A26717FBE292B2628E183004" />
+        <ComponentRef Id="cmp643801DACBBBEADE0205E6099E0A42D6" />
+        <ComponentRef Id="cmpDE668CA861EE932B94CAEDD26D32C355" />
+        <ComponentRef Id="cmp791DFB2C957000437F0FAB1DD6A2063D" />
+        <ComponentRef Id="cmp7F205F05C0F56634B0C55606533D7829" />
+        <ComponentRef Id="cmp5813246C1DEB574E323C9B953C57E217" />
+        <ComponentRef Id="cmpF8BC7D046A9B73AD5E81E3E3B577A8FA" />
+        <ComponentRef Id="cmpB90129D8B290B6016298B822250B0F36" />
+        <ComponentRef Id="cmp54C1E834FE18BBC72CF951F3BEE2AFE2" />
+        <ComponentRef Id="cmp7DDC50E1C66410C0AFCD157CCA8B3DDD" />
+        <ComponentRef Id="cmp013E6B5F04ACBA7D126CF8294AC5594A" />
+        <ComponentRef Id="cmpC30081E9E3DD093FC9E6EC2676A94393" />
+        <ComponentRef Id="cmp1B1281FA0CD64339A8061CA1EF9AD19A" />
+        <ComponentRef Id="cmpC8D01DAEB47D8EFF92BC68966978D8A1" />
+        <ComponentRef Id="cmpAD5D1CE436F760E61CCB14AE59BD9F8A" />
+        <ComponentRef Id="cmpDBA97A309C8464128733245124C43CC0" />
+        <ComponentRef Id="cmpDCFC0CA6B4F209FB9BA11699C50FD6C7" />
+        <ComponentRef Id="cmp658CF6CF73804C45D801D62A9B245B97" />
+        <ComponentRef Id="cmp4B72EB33F16C7B5AA85B054FBDE10834" />
+        <ComponentRef Id="cmpB561073C08FE778EF46E1DF001B40276" />
+        <ComponentRef Id="cmp1CF71737630E11FD7AD7DA631794DF17" />
+        <ComponentRef Id="cmpE75A0CE8395BADC617BFF856F441A01D" />
+        <ComponentRef Id="cmp786F4AB645CEF71067C21AA00BC7C6CA" />
+        <ComponentRef Id="cmp3DECC555C42839C32321F4AD7739CAC1" />
+        <ComponentRef Id="cmpA2484631D06DDCAB8EC958A4A0DD14C5" />
+        <ComponentRef Id="cmp19B3933323B920E15C66E92542D601C1" />
+        <ComponentRef Id="cmp50335DB2E304594EE3BDC8CA4D163577" />
+        <ComponentRef Id="cmp50598B0EB2A7A65B3361C039AC6583C4" />
+        <ComponentRef Id="cmpBF347F062AB977C287996E89D48CD68E" />
+        <ComponentRef Id="cmpFA97E91F485F05040769658B2C908934" />
+        <ComponentRef Id="cmp5A8B10FDFD501943730C52CE20F10990" />
+        <ComponentRef Id="cmp470B33C5C685B3C8212B701739DA66F0" />
+      </ComponentGroup>
+	</Fragment>  
+</Wix>

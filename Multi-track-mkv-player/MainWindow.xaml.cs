@@ -161,7 +161,8 @@ namespace Multi_track_mkv_player {
             EventHandler<VlcMediaPlayerPlayingEventArgs> playingCb = null;
             playingCb = (s, e2) => {
                 ctl.MediaPlayer.Video.Tracks.Current = ctl.MediaPlayer.Video.Tracks.All.ElementAt(trackIdx);
-                ctl.MediaPlayer.Audio.Tracks.Current = ctl.MediaPlayer.Audio.Tracks.All.First(); //disable
+                if(ctl.MediaPlayer.Audio.Tracks.Count > 0)
+                    ctl.MediaPlayer.Audio.Tracks.Current = ctl.MediaPlayer.Audio.Tracks.All.First(); //disable
                 ctl.MediaPlayer.Playing -= playingCb;
             };
             ctl.MediaPlayer.Playing += playingCb;
