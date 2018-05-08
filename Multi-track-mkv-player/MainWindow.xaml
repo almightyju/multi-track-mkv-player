@@ -60,23 +60,27 @@
 
                         <Setter Property="BorderBrush" Value="Transparent"/>
                         <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Height" Value="32px" />
+                        <Setter Property="DockPanel.Dock" Value="Left" />
                     </Style>
                 </DockPanel.Resources>
-                
-                <Button Name="PlayButton" Click="Play" Style="{StaticResource autoHide}" Height="32px">
+
+                <Button Name="PlayButton" Click="Play" Style="{StaticResource autoHide}">
                     <Image Source="images\play.png" />
                 </Button>
 
-                <Button Name="PauseButton" Click="Pause" Style="{StaticResource autoHide}" Height="32px">
+                <Button Name="PauseButton" Click="Pause" Style="{StaticResource autoHide}">
                     <Image Source="images\pause.png" />
                 </Button>
 
-                <TextBlock VerticalAlignment="Center" Margin="5">Volume</TextBlock>
-                <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="volumeSlider_ValueChanged" Minimum="0" Maximum="100" Width="70" IsMoveToPointEnabled="True"/>
+                <TextBlock VerticalAlignment="Center" DockPanel.Dock="Left" Margin="5">Volume</TextBlock>
+                <Slider Name="volumeSlider" DockPanel.Dock="Left" Margin="5" VerticalAlignment="Center" ValueChanged="volumeSlider_ValueChanged" Minimum="0" Maximum="100" Width="70" IsMoveToPointEnabled="True"/>
 
-                <TextBlock Margin="5" VerticalAlignment="Center">Seek To</TextBlock>
-                <Slider Name="timelineSlider" Margin="5" ValueChanged="timelineSlider_ValueChanged" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" HorizontalAlignment="Stretch" Minimum="0" Maximum="1" IsMoveToPointEnabled="True" />
-
+                <TextBlock Margin="5" VerticalAlignment="Center" DockPanel.Dock="Left">Seek To</TextBlock>                
+                
+                <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5" Text="{Binding TimeIndex, FallbackValue=00:00}"></TextBlock>
+                
+                <Slider Name="timelineSlider" VerticalAlignment="Center" ValueChanged="timelineSlider_ValueChanged" Thumb.DragStarted="timelineSlider_DragStarted" Thumb.DragCompleted="timelineSlider_DragCompleted" HorizontalAlignment="Stretch" Minimum="0" Maximum="1" IsMoveToPointEnabled="True" />
             </DockPanel>
         </Border>
     </Grid>

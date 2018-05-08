@@ -38,6 +38,15 @@ namespace Multi_track_mkv_player {
 
         public IEnumerable<VlcVideoSourceProvider> OtherSources { get => _videoSources.Where(i => i != _mainSource); }
 
+        private string _timeIndex;
+        public string TimeIndex {
+            get => _timeIndex;
+            set {
+                _timeIndex = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TimeIndex)));
+            }
+        }
+
 
         public void AddVideoSource(VlcVideoSourceProvider src) {
             _videoSources.Add(src);
@@ -45,9 +54,10 @@ namespace Multi_track_mkv_player {
         }
 
         public void ClearVideoSources() {
-            foreach (var s in _videoSources)
-                s.Dispose();
+            var sources = _videoSources.ToArray();
             _videoSources.Clear();
+            foreach (var s in sources)
+                s.Dispose();
         }
 
         public ICommand SetMainVideoCommand { get; private set; }
@@ -82,6 +92,8 @@ namespace Multi_track_mkv_player {
     public partial class MainWindow : Window {
         private IO.DirectoryInfo _vlcLibDir;
         private string _medialUrl;
+        private string _lastFile;
+        private bool _pauseOnPlay;
 
         public VideoVM VM { get; } = new VideoVM();
 
@@ -109,6 +121,7 @@ namespace Multi_track_mkv_player {
         }
 
         private void OpenFile(string path) {
+            _lastFile = path;
             _medialUrl = $"file:///{path.Replace('\\', '/')}";
 
             VM.ClearVideoSources();
@@ -119,11 +132,25 @@ namespace Multi_track_mkv_player {
 
             mainSrc.MediaPlayer.Playing += MediaPlayer_Playing;
             mainSrc.MediaPlayer.PositionChanged += MediaPlayer_PositionChanged;
+            mainSrc.MediaPlayer.TimeChanged += MediaPlayer_TimeChanged;
+            mainSrc.MediaPlayer.EndReached += MediaPlayer_EndReached;
 
             mainSrc.MediaPlayer.Play();
 
             VM.AddVideoSource(mainSrc);
             VM.MainSource = mainSrc;
+        }
+
+        private void MediaPlayer_EndReached(object sender, VlcMediaPlayerEndReachedEventArgs e) {
+            Dispatcher.BeginInvoke(new Action(() => {
+                _pauseOnPlay = true;
+                OpenFile(_lastFile);                
+            }));
+        }
+
+        private void MediaPlayer_TimeChanged(object sender, VlcMediaPlayerTimeChangedEventArgs e) {
+            long time = e.NewTime / 1000;
+            VM.TimeIndex = $"{Math.Floor((decimal)time / 60).ToString().PadLeft(2, '0')}:{(time % 60).ToString().PadLeft(2, '0')}";
         }
 
         private void MediaPlayer_Playing(object sender, Vlc.DotNet.Core.VlcMediaPlayerPlayingEventArgs e) {
@@ -138,6 +165,13 @@ namespace Multi_track_mkv_player {
             Dispatcher.Invoke(() => volumeSlider.Value = VM.MainSource.MediaPlayer.Audio.Volume);
             _ignoreVolumeValChange = false;
 
+            if (_pauseOnPlay)
+                Dispatcher.BeginInvoke(new Action(() => {
+                    Pause(this, null);
+                    timelineSlider.Value = 0;
+                }));
+            _pauseOnPlay = false;
+
             VM.MainSource.MediaPlayer.Playing -= MediaPlayer_Playing;
         }
 
@@ -146,7 +180,7 @@ namespace Multi_track_mkv_player {
         private bool _ignoreVolumeValChange = false;
         private void MediaPlayer_PositionChanged(object sender, VlcMediaPlayerPositionChangedEventArgs e) {
             if (_isUserDragTimeline) return;
-
+            
             Dispatcher.BeginInvoke(new Action(() => {
                 _ignoreTimelineValChange = true;
                 timelineSlider.Value = e.NewPosition;
