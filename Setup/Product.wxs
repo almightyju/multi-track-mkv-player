@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Police Ident Player" Language="1033" Version="1.0.1.0" Manufacturer="Crystal IT" UpgradeCode="7fa9348d-ab08-49ff-b395-58caad8ba7cf">
+	<Product Id="*" Name="Multi Track MKV Player" Language="1033" Version="1.0.1.0" Manufacturer="Crystal IT" UpgradeCode="7fa9348d-ab08-49ff-b395-58caad8ba7cf">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -15,7 +15,7 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFiles64Folder">
-				<Directory Id="INSTALLFOLDER" Name="Police Ident Player" />
+				<Directory Id="INSTALLFOLDER" Name="Multi Track MKV Player" />
 			</Directory>
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="Crystal IT"/>
@@ -25,11 +25,11 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="f4621811-b18c-49bb-a473-ed90d60d466d">
         <Shortcut Id="ApplicationStartMenuShortcut"
-                  Name="Police Ident Player"
-                  Target="[#filADE97AAE4402AEF7ABC811987ADD84C1]"
-                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+                  Name="Multi Track MKV Player"
+                  Target="[INSTALLFOLDER]Multi-track-mkv-player.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RegistryValue Root="HKCU" Key='Software\Crystal IT\Multi Track MKV Player' Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
 	</Fragment>
